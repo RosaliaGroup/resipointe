@@ -14,17 +14,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { GALLERY_IMAGES } from "@shared/data";
 
-// ─── Color tokens (navy/slate + warm gold) ───────────────────────────────────
+// ─── Color tokens (warm sand / cream / taupe) ────────────────────────────────
 const C = {
-  navy:     "oklch(0.22 0.06 240)",
-  navyMid:  "oklch(0.28 0.07 240)",
-  navyLight:"oklch(0.35 0.07 240)",
-  gold:     "oklch(0.72 0.14 75)",
-  goldSoft: "oklch(0.80 0.10 75)",
-  goldFaint:"oklch(0.72 0.14 75 / 0.12)",
-  slate:    "oklch(0.55 0.04 240)",
-  slateLight:"oklch(0.75 0.03 240)",
-  cream:    "oklch(0.97 0.01 75)",
+  navy:     "oklch(0.28 0.04 55)",   // deep warm taupe/espresso
+  navyMid:  "oklch(0.34 0.05 55)",   // mid taupe
+  navyLight:"oklch(0.42 0.05 55)",   // lighter taupe
+  gold:     "oklch(0.68 0.12 65)",   // warm amber-gold
+  goldSoft: "oklch(0.76 0.09 65)",   // soft gold
+  goldFaint:"oklch(0.68 0.12 65 / 0.12)",
+  slate:    "oklch(0.52 0.04 55)",   // warm medium taupe
+  slateLight:"oklch(0.78 0.04 55)",  // light warm sand
+  cream:    "oklch(0.97 0.015 65)",  // warm cream/sand
   white:    "white",
 };
 
@@ -236,7 +236,7 @@ export default function OurStory() {
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
-            backgroundImage: `radial-gradient(${C.gold} 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(oklch(0.68 0.12 65 / 0.4) 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
           }}
         />

@@ -58,3 +58,6 @@
 - [x] New distinct color palette (deep navy/slate + warm gold accents, away from dark brown)
 - [x] Condense timeline to compact horizontal scrollable strip (not tall alternating layout)
 - [x] Feature voting list visible above the fold after hero
+
+## Color Palette Fix
+- [x] Replace navy/blue palette with warm sand/cream/taupe on Our Story page
