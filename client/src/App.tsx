@@ -10,6 +10,7 @@ import CollaborationHub from "./pages/CollaborationHub";
 import SocialGenerator from "./pages/SocialGenerator";
 import FloorPlans from "./pages/FloorPlans";
 import BookTour from "./pages/BookTour";
+import OurStory from "./pages/OurStory";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/social-generator" component={SocialGenerator} />
       <Route path="/floor-plans" component={FloorPlans} />
       <Route path="/book-tour" component={BookTour} />
+      <Route path="/our-story" component={OurStory} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

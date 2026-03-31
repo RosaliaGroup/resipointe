@@ -34,4 +34,16 @@
 - [x] Vitest: auth, booking, survey, chat, social generation (12 tests passing)
 
 ## GitHub
-- [ ] Push final build to RosaliaGroup/resipointe
+- [x] Push final build to RosaliaGroup/resipointe
+
+## Developer Story & Collaboration Page
+- [x] Developer history timeline (founding, milestones, portfolio growth)
+- [x] Pipeline projects showcase (upcoming buildings with renderings/details)
+- [x] Interactive "Build Your Dream Home" feature wishlist (categories: kitchen, bathroom, tech, amenities, community, outdoor)
+- [x] Feature voting system (upvote/downvote with live counts)
+- [x] Free-text "dream feature" submission form
+- [x] Collaboration manifesto section (Resipointe philosophy)
+- [x] Add "Our Story" nav link to Navbar
+- [x] Backend: save votes and submissions to DB, notify owner
+- [x] Tests for new routes
+- [x] Push to GitHub

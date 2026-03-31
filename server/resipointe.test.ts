@@ -176,3 +176,34 @@ describe("social.generate", () => {
     expect(result.platform).toBe("linkedin");
   });
 });
+
+// ─── Collaboration Tests ──────────────────────────────────────────────────────
+describe("collaboration.submitDream", () => {
+  it("submits a dream feature successfully with name and email", async () => {
+    const ctx = createPublicContext();
+    const caller = appRouter.createCaller(ctx);
+    const result = await caller.collaboration.submitDream({
+      feature: "A rooftop herb garden where residents can grow their own food",
+      name: "Maria Santos",
+      email: "maria@example.com",
+    });
+    expect(result).toEqual({ success: true });
+  });
+
+  it("submits a dream feature anonymously without name or email", async () => {
+    const ctx = createPublicContext();
+    const caller = appRouter.createCaller(ctx);
+    const result = await caller.collaboration.submitDream({
+      feature: "Dedicated music practice room with soundproofing",
+    });
+    expect(result).toEqual({ success: true });
+  });
+
+  it("rejects a dream feature that is too short", async () => {
+    const ctx = createPublicContext();
+    const caller = appRouter.createCaller(ctx);
+    await expect(
+      caller.collaboration.submitDream({ feature: "Hi" })
+    ).rejects.toThrow();
+  });
+});

@@ -51,6 +51,7 @@ export default function Navbar() {
             </div>
             <a href="/#calculator" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Cost Calculator</a>
             <a href="/#gallery" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Gallery</a>
+            <Link href="/our-story" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Our Story</Link>
             <Link href="/collaborate" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Collaborate</Link>
             <Link href="/floor-plans" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Floor Plans</Link>
           </div>
@@ -89,6 +90,9 @@ export default function Navbar() {
             ))}
             <a href="/#calculator" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Cost Calculator</a>
             <a href="/#gallery" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Gallery</a>
+            <Link href="/our-story" onClick={() => setOpen(false)}>
+              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Our Story</div>
+            </Link>
             <Link href="/collaborate" onClick={() => setOpen(false)}>
               <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Collaborate</div>
             </Link>

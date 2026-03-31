@@ -83,6 +83,17 @@ export const leads = mysqlTable("leads", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
+export const dreamSubmissions = mysqlTable("dream_submissions", {
+  id: int("id").autoincrement().primaryKey(),
+  feature: text("feature").notNull(),
+  name: varchar("name", { length: 256 }),
+  email: varchar("email", { length: 320 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type DreamSubmission = typeof dreamSubmissions.$inferSelect;
+export type InsertDreamSubmission = typeof dreamSubmissions.$inferInsert;
+
 export type User = typeof users.$inferSelect;
 export type TourBooking = typeof tourBookings.$inferSelect;
 export type InsertTourBooking = typeof tourBookings.$inferInsert;

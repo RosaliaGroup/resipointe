@@ -5,7 +5,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
 import { getDb } from "./db";
-import { tourBookings, chatMessages, surveyResponses, featureVotes, socialPosts, leads } from "../drizzle/schema";
+import { tourBookings, chatMessages, surveyResponses, featureVotes, socialPosts, leads, dreamSubmissions } from "../drizzle/schema";
 import { eq, desc, sql } from "drizzle-orm";
 import { PROPERTIES, CAMPAIGNS, FLOOR_PLANS } from "../shared/data";
 import { notifyOwner } from "./_core/notification";
@@ -277,6 +277,37 @@ Return JSON with exactly these fields:
     }),
 });
 
+// ─── Collaboration Router ────────────────────────────────────────────────────
+const collaborationRouter = router({
+  submitDream: publicProcedure
+    .input(z.object({
+      feature: z.string().min(5).max(2000),
+      name: z.string().optional(),
+      email: z.string().email().optional().or(z.literal("")),
+    }))
+    .mutation(async ({ input }) => {
+      const db = await getDb();
+      if (db) {
+        await db.insert(dreamSubmissions).values({
+          feature: input.feature,
+          name: input.name || null,
+          email: input.email || null,
+        });
+      }
+      await notifyOwner({
+        title: `New Dream Feature Submission`,
+        content: `${input.name || "Anonymous"} (${input.email || "no email"}) submitted: "${input.feature.slice(0, 200)}${input.feature.length > 200 ? "..." : ""}"`
+      });
+      return { success: true };
+    }),
+
+  getDreams: publicProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return [];
+    return db.select().from(dreamSubmissions).orderBy(desc(dreamSubmissions.createdAt)).limit(50);
+  }),
+});
+
 // ─── App Router ──────────────────────────────────────────────────────────────
 export const appRouter = router({
   system: systemRouter,
@@ -292,6 +323,7 @@ export const appRouter = router({
   booking: bookingRouter,
   survey: surveyRouter,
   social: socialRouter,
+  collaboration: collaborationRouter,
 });
 
 export type AppRouter = typeof appRouter;
