@@ -47,3 +47,8 @@
 - [x] Backend: save votes and submissions to DB, notify owner
 - [x] Tests for new routes
 - [x] Push to GitHub
+
+## Our Story as Main Page
+- [x] Make Our Story the root "/" route (move current Home to "/properties")
+- [x] Fix pipeline project images — remove dark overlays, make images light and clearly visible
+- [x] Update navbar links to reflect new routing

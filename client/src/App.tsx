@@ -15,7 +15,8 @@ import OurStory from "./pages/OurStory";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" component={OurStory} />
+      <Route path="/properties" component={Home} />
       <Route path="/campaigns/:id" component={CampaignPage} />
       <Route path="/collaborate" component={CollaborationHub} />
       <Route path="/social-generator" component={SocialGenerator} />

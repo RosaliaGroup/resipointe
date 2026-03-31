@@ -33,7 +33,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-6">
-            <a href="/#properties" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Properties</a>
+            <Link href="/properties" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Properties</Link>
             <div className="relative group">
               <button className={`text-sm font-medium ${textColor} hover:text-primary transition-colors flex items-center gap-1`}>
                 Campaigns
@@ -51,7 +51,7 @@ export default function Navbar() {
             </div>
             <a href="/#calculator" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Cost Calculator</a>
             <a href="/#gallery" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Gallery</a>
-            <Link href="/our-story" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Our Story</Link>
+            <Link href="/" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Our Story</Link>
             <Link href="/collaborate" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Collaborate</Link>
             <Link href="/floor-plans" className={`text-sm font-medium ${textColor} hover:text-primary transition-colors`}>Floor Plans</Link>
           </div>
@@ -79,7 +79,9 @@ export default function Navbar() {
       {open && (
         <div className="lg:hidden bg-card border-t border-border shadow-xl">
           <div className="container py-4 space-y-1">
-            <a href="/#properties" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Properties</a>
+            <Link href="/properties" onClick={() => setOpen(false)}>
+              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Properties</div>
+            </Link>
             <p className="px-3 py-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Campaigns</p>
             {CAMPAIGNS.map(c => (
               <Link key={c.id} href={c.slug} onClick={() => setOpen(false)}>
@@ -90,7 +92,7 @@ export default function Navbar() {
             ))}
             <a href="/#calculator" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Cost Calculator</a>
             <a href="/#gallery" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Gallery</a>
-            <Link href="/our-story" onClick={() => setOpen(false)}>
+            <Link href="/" onClick={() => setOpen(false)}>
               <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Our Story</div>
             </Link>
             <Link href="/collaborate" onClick={() => setOpen(false)}>

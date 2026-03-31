@@ -417,7 +417,7 @@ export default function OurStory() {
       <section
         id="pipeline"
         className="py-24"
-        style={{ background: "oklch(0.12 0.04 45)" }}
+        style={{ background: "oklch(0.97 0.01 50)" }}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -426,94 +426,67 @@ export default function OurStory() {
               <span className="text-xs tracking-[0.25em] uppercase font-medium" style={{ color: "oklch(0.65 0.12 50)" }}>Coming Soon</span>
               <div className="h-px w-12" style={{ background: "oklch(0.65 0.12 50)" }} />
             </div>
-            <h2 className="font-serif text-4xl font-light text-white mb-4">Projects in the Pipeline</h2>
-            <p className="text-base max-w-2xl mx-auto" style={{ color: "oklch(0.70 0.06 45)" }}>
+            <h2 className="font-serif text-4xl font-light text-foreground mb-4">Projects in the Pipeline</h2>
+            <p className="text-base max-w-2xl mx-auto text-muted-foreground">
               These three developments are being shaped right now — by our team and by future tenants like you. Vote on features below to directly influence what gets built.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid lg:grid-cols-3 gap-8">
             {PIPELINE.map(project => (
               <div
                 key={project.id}
-                className="rounded-2xl overflow-hidden border cursor-pointer transition-all"
-                style={{
-                  borderColor: expandedPipeline === project.id ? "oklch(0.65 0.12 50 / 0.5)" : "oklch(0.65 0.12 50 / 0.15)",
-                  background: "oklch(0.18 0.04 45)",
-                }}
+                className="rounded-2xl overflow-hidden border bg-card shadow-md hover:shadow-xl transition-all cursor-pointer group"
+                style={{ borderColor: "oklch(0.65 0.12 50 / 0.2)" }}
                 onClick={() => setExpandedPipeline(expandedPipeline === project.id ? null : project.id)}
               >
-                {/* Header */}
-                <div className="flex items-center gap-6 p-6">
-                  <div
-                    className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0"
-                    style={{ background: "oklch(0.25 0.04 45)" }}
-                  >
-                    <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 flex-wrap mb-1">
-                      <h3 className="font-serif text-xl font-light text-white">{project.name}</h3>
-                      <span
-                        className="text-xs px-2 py-0.5 rounded-full font-medium"
-                        style={{ background: project.statusColor + "25", color: project.statusColor }}
-                      >
-                        {project.status}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs" style={{ color: "oklch(0.65 0.06 45)" }}>
-                      <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{project.address}</span>
-                      <span className="flex items-center gap-1"><Building2 className="w-3 h-3" />{project.units} units</span>
-                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />Target: {project.target}</span>
-                    </div>
-                  </div>
-                  <ChevronRight
-                    className="w-5 h-5 flex-shrink-0 transition-transform"
-                    style={{
-                      color: "oklch(0.65 0.12 50)",
-                      transform: expandedPipeline === project.id ? "rotate(90deg)" : "rotate(0deg)",
-                    }}
+                {/* Full-brightness image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  {/* Only a very subtle gradient at the bottom for the status badge */}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
+                  <span
+                    className="absolute top-3 right-3 text-xs px-3 py-1 rounded-full font-semibold shadow"
+                    style={{ background: project.statusColor, color: "white" }}
+                  >
+                    {project.status}
+                  </span>
+                  <div className="absolute bottom-3 left-3 flex items-center gap-3 text-white">
+                    <span className="flex items-center gap-1 text-xs font-medium"><Building2 className="w-3 h-3" />{project.units} units</span>
+                    <span className="flex items-center gap-1 text-xs font-medium"><Calendar className="w-3 h-3" />{project.target}</span>
+                  </div>
                 </div>
 
-                {/* Expanded */}
-                {expandedPipeline === project.id && (
-                  <div className="px-6 pb-6 border-t" style={{ borderColor: "oklch(0.65 0.12 50 / 0.15)" }}>
-                    <div className="pt-5 grid lg:grid-cols-2 gap-6">
-                      <div>
-                        <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.75 0.05 45)" }}>
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.highlights.map(h => (
-                            <span
-                              key={h}
-                              className="text-xs px-3 py-1 rounded-full border"
-                              style={{ borderColor: "oklch(0.65 0.12 50 / 0.3)", color: "oklch(0.75 0.10 50)" }}
-                            >
-                              {h}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div
-                        className="rounded-xl overflow-hidden aspect-video"
-                        style={{ background: "oklch(0.22 0.04 45)" }}
+                {/* Card body */}
+                <div className="p-5">
+                  <h3 className="font-serif text-xl font-semibold text-foreground mb-1">{project.name}</h3>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1 mb-3"><MapPin className="w-3 h-3" />{project.address}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.highlights.map(h => (
+                      <span
+                        key={h}
+                        className="text-xs px-2.5 py-1 rounded-full font-medium"
+                        style={{ background: "oklch(0.65 0.12 50 / 0.10)", color: "oklch(0.50 0.12 50)" }}
                       >
-                        <img src={project.image} alt={project.name} className="w-full h-full object-cover opacity-80" />
-                      </div>
-                    </div>
-                    <div
-                      className="mt-4 p-4 rounded-xl flex items-center gap-3"
-                      style={{ background: "oklch(0.65 0.12 50 / 0.12)" }}
-                    >
-                      <Heart className="w-5 h-5 flex-shrink-0" style={{ color: "oklch(0.65 0.12 50)" }} />
-                      <p className="text-sm" style={{ color: "oklch(0.80 0.08 50)" }}>
-                        <strong>Your vote matters here.</strong> Scroll down to vote on features — the most-requested items will be prioritized in this building's design.
-                      </p>
-                    </div>
+                        {h}
+                      </span>
+                    ))}
                   </div>
-                )}
+                  <div
+                    className="p-3 rounded-xl flex items-start gap-2"
+                    style={{ background: "oklch(0.65 0.12 50 / 0.08)" }}
+                  >
+                    <Heart className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: "oklch(0.65 0.12 50)" }} />
+                    <p className="text-xs leading-relaxed" style={{ color: "oklch(0.45 0.10 50)" }}>
+                      Vote on features below — the most-requested items will be built into this project.
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
