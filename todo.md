@@ -52,3 +52,9 @@
 - [x] Make Our Story the root "/" route (move current Home to "/properties")
 - [x] Fix pipeline project images — remove dark overlays, make images light and clearly visible
 - [x] Update navbar links to reflect new routing
+
+## Our Story Redesign v2
+- [x] Merge gallery section into Our Story page
+- [x] New distinct color palette (deep navy/slate + warm gold accents, away from dark brown)
+- [x] Condense timeline to compact horizontal scrollable strip (not tall alternating layout)
+- [x] Feature voting list visible above the fold after hero
