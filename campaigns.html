@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Resipointe — 32 Campaign Lead Generation Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#9B7540;--gp:#EDD9BC;--gd:#6B4E24;--dark:#1A1410;--cream:#F2EBE0;--w:#FAF5EE;--muted:#6B6058;--sans:'DM Sans',sans-serif;--serif:'Cormorant Garamond',serif}
+body{background:var(--cream);color:var(--dark);font-family:var(--sans);font-size:15px}
+.header{background:var(--dark);padding:2.5rem 3rem;border-bottom:2px solid var(--g)}
+.header h1{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:#fff;margin-bottom:.4rem}
+.header h1 span{color:#D4AE80;font-style:italic}
+.header p{color:rgba(255,255,255,.55);font-size:.88rem}
+.stats-bar{background:var(--g);padding:1rem 3rem;display:flex;gap:3rem;align-items:center}
+.stat{color:#fff;text-align:center}
+.stat-n{font-family:var(--serif);font-size:1.8rem;font-weight:300}
+.stat-l{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.filters{padding:1.5rem 3rem;display:flex;gap:.6rem;flex-wrap:wrap;border-bottom:1px solid #CCBCA8;background:var(--w)}
+.filter-btn{padding:.38rem 1rem;border:1px solid #CCBCA8;background:none;font-size:.72rem;cursor:pointer;border-radius:2px;font-family:var(--sans);transition:all .25s}
+.filter-btn:hover,.filter-btn.on{background:var(--g);color:#fff;border-color:var(--g)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#CCBCA8;padding:1px}
+.card{background:var(--w);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;transition:all .3s;cursor:pointer}
+.card:hover{background:#fff;transform:none;box-shadow:0 0 0 2px var(--g) inset}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.card-num{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--g);line-height:1;flex-shrink:0}
+.card-platform{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:var(--dark);color:#fff;padding:.2rem .55rem;border-radius:2px;font-weight:500;white-space:nowrap}
+.card-audience{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:.2rem}
+.card-hook{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--dark);line-height:1.35}
+.card-meta{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.25rem}
+.card-meta-item{font-size:.72rem;color:var(--muted)}
+.card-meta-item strong{color:var(--dark);font-weight:500}
+.card-leads{display:inline-block;background:var(--gp);color:var(--gd);font-size:.7rem;font-weight:500;padding:.25rem .65rem;border-radius:2px;margin-top:.25rem}
+.card-budget{font-size:.7rem;color:var(--muted)}
+.expand-btn{margin-top:auto;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g);cursor:pointer;background:none;border:none;font-family:var(--sans);text-align:left;padding:0}
+.caption-box{display:none;margin-top:.75rem;background:var(--cream);border-left:3px solid var(--g);padding:1rem;font-size:.8rem;line-height:1.7;color:var(--muted);white-space:pre-wrap;font-style:italic}
+.caption-box.show{display:block}
+.copy-btn{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;background:var(--g);color:#fff;border:none;padding:.28rem .7rem;border-radius:2px;cursor:pointer;font-family:var(--sans);margin-top:.5rem}
+.weekly-total{background:var(--dark);color:#fff;padding:2rem 3rem;text-align:center}
+.weekly-total h2{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:#D4AE80;margin-bottom:.5rem}
+.weekly-total p{color:rgba(255,255,255,.55);font-size:.88rem}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.stats-bar{flex-wrap:wrap;gap:1.5rem;padding:1rem 1.5rem}.filters,.header,.weekly-total{padding-left:1.5rem;padding-right:1.5rem}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Resipointe <span>Campaign Playbook</span></h1>
+  <p>32 campaigns across 11 platforms — designed to generate 50–100+ qualified leads per week</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">32</div><div class="stat-l">Campaigns</div></div>
+  <div class="stat"><div class="stat-n">11</div><div class="stat-l">Platforms</div></div>
+  <div class="stat"><div class="stat-n">50–100+</div><div class="stat-l">Leads / Week</div></div>
+  <div class="stat"><div class="stat-n">$350</div><div class="stat-l">Est. Daily Budget</div></div>
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Audiences</div></div>
+</div>
+
+<div class="filters">
+  <button class="filter-btn on" onclick="filterCamps('all',this)">All (32)</button>
+  <button class="filter-btn" onclick="filterCamps('Instagram',this)">Instagram (10)</button>
+  <button class="filter-btn" onclick="filterCamps('TikTok',this)">TikTok (6)</button>
+  <button class="filter-btn" onclick="filterCamps('Facebook',this)">Facebook (4)</button>
+  <button class="filter-btn" onclick="filterCamps('Google',this)">Google (4)</button>
+  <button class="filter-btn" onclick="filterCamps('LinkedIn',this)">LinkedIn (2)</button>
+  <button class="filter-btn" onclick="filterCamps('Email',this)">Email/SMS (2)</button>
+  <button class="filter-btn" onclick="filterCamps('commuter',this)">NYC Commuters</button>
+  <button class="filter-btn" onclick="filterCamps('pilot',this)">Pilots/Crew</button>
+  <button class="filter-btn" onclick="filterCamps('gen',this)">Gen Z</button>
+  <button class="filter-btn" onclick="filterCamps('tax',this)">Tax Savings</button>
+</div>
+
+<div class="grid" id="campGrid">
+
+  <div class="card" data-platform="instagram reels" data-audience="nyc commuters">
+    <div class="card-top">
+      <div class="card-num">01</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">NYC Commuters</div>
+    <div class="card-hook">POV: paying $4,200/mo for a NYC 1BR vs this Newark luxury apartment 👀</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Before/After split screen</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio → resipointe.netlify.app</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC 25-40, $80K+ income, commuter interest</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $25/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 8-12 leads/week</span></div>
+    <button class="expand-btn" data-id="1" onclick="toggleCaption(1)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-1">POV: you're paying $4,200/mo for a NYC 1BR with zero amenities 😶
+
+Meanwhile this Newark apartment has:
+✅ Black matte kitchen + stainless steel
+✅ Designer bathroom with soaking tub
+✅ Rooftop with NYC skyline views
+✅ Gym, co-working, 24hr security
+✅ PATH to Midtown in 20 min
+✅ $2,000/mo effective (2 months FREE)
+✅ You only pay ELECTRICITY
+
+Save $25,000+ a year. I'm not kidding.
+
+🔗 Link in bio to see all units
+📞 (201) 449-6850
+.
+.
+#NYCapartments #Newarkapartments #PATHtrain #NJliving #luxuryapartment #apartmenttour #NYCcommuter #affordableluxury #NewarkNJ #resipointe<br><button class="copy-btn" onclick="copyCaption(1)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="tax savings">
+    <div class="card-top">
+      <div class="card-num">02</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Tax Savings</div>
+    <div class="card-hook">If you earn $100K+ in NYC you're GIVING the city $5,000/year 🤯</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Talking head with text overlay</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Book a tour - link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC finance/tech workers 28-45</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 6-10 leads/week</span></div>
+    <button class="expand-btn" data-id="2" onclick="toggleCaption(2)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-2">If you earn $100,000 in NYC you're paying the city $3,876 in local income tax 🤯
+
+$150K salary? That's $5,800 gone.
+$200K salary? That's $7,900 gone.
+
+Every. Single. Year.
+
+Move to Newark, NJ. Keep EVERY penny.
+
+PATH to Midtown: 20 minutes
+Luxury 1BR from: $2,000/mo effective
+You only pay: electricity
+
+That's $5,800+ back in your pocket + $25K saved on rent vs Manhattan.
+
+We're talking $30,000+ a year difference.
+
+Link in bio 👆
+#taxsavings #NYC #NJliving #financetips #moneysaving #Newarkapartments #PATHtrain #NYCincome<br><button class="copy-btn" onclick="copyCaption(2)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="apartment tour">
+    <div class="card-top">
+      <div class="card-num">03</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Apartment Tour</div>
+    <div class="card-hook">Apartment tour: Newark luxury 1BR — $2,000/mo effective 🏠</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Walking tour video</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Schedule your tour - link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> Apartment hunters NJ/NY 22-35</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $30/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 10-15 leads/week</span></div>
+    <button class="expand-btn" data-id="3" onclick="toggleCaption(3)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-3">APARTMENT TOUR: Newark luxury 1BR — $2,000/mo effective 🏠
+
+What you get:
+🍳 Island kitchen with black matte cabinets
+🛁 Large-format tile bathroom with soaking tub
+🚿 Walk-in shower with designer fixtures
+👔 Walk-in closet
+🫧 In-unit washer/dryer
+📶 Gigabit fiber included
+🔑 Smart home keyless entry
+
+Building amenities:
+🏙️ Rooftop lounge with NYC skyline views
+💪 24/7 gym
+📦 Package lockers
+🔒 24hr live security
+🚗 EV charging
+⚡ You only pay ELECTRICITY
+
+20 min to Manhattan by PATH. No broker fee. 2 months FREE.
+
+Save this post 📌 and DM for a tour!
+#apartmenttour #Newarkapartments #luxuryapartment #apartmenthunting #NewarkNJ #NJliving<br><button class="copy-btn" onclick="copyCaption(3)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="pilots & ewr crew">
+    <div class="card-top">
+      <div class="card-num">04</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Pilots & EWR Crew</div>
+    <div class="card-hook">For pilots based at EWR — this is your dream apartment ✈️</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Lifestyle + airport proximity</div>
+      <div class="card-meta-item"><strong>CTA:</strong> DM for crew lease options</div>
+      <div class="card-meta-item"><strong>Target:</strong> Pilots, flight attendants, EWR-based airline staff</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="4" onclick="toggleCaption(4)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-4">For pilots and flight crew based at EWR ✈️
+
+EWR is literally 5 minutes away 🗺️
+
+What Iron Pointe gives you:
+✅ 24-hour live security (your stuff is safe while you fly)
+✅ Smart home — keyless, app-controlled
+✅ Package lockers for deliveries while you're away
+✅ 24/7 gym to maintain fitness between flights
+✅ Rooftop to decompress after long hauls
+⚡ Electricity only — no confusing utility bills
+
+From $2,000/mo effective with 2 months FREE
+Indoor parking available $300/mo
+
+DM us for crew lease options
+📞 (201) 449-6850
+#pilotsofinstagram #flightcrew #EWR #Newarkairport #crewlife #pilotlife #aviationlife #Newarkapartments<br><button class="copy-btn" onclick="copyCaption(4)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="gen z / young professionals">
+    <div class="card-top">
+      <div class="card-num">05</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Gen Z / Young Professionals</div>
+    <div class="card-hook">This is what $2,000/mo gets you in Newark vs $2,000 in NYC 😭</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Split comparison</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> 22-30, recent grads, first job NYC area</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $25/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 8-12 leads/week</span></div>
+    <button class="expand-btn" data-id="5" onclick="toggleCaption(5)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-5">$2,000/mo in NYC: a 400sqft studio in a 6-floor walkup 🙃
+$2,000/mo in Newark: THIS 👇
+
+✨ Full 1BR with black matte island kitchen
+✨ Designer bathroom with soaking tub + large tile
+✨ Walk-in closet + in-unit washer/dryer
+✨ Rooftop with NYC skyline views
+✨ 24/7 gym + co-working lounge
+✨ 20 min PATH to Manhattan
+✨ 0 NYC income tax (save $3-5K/yr)
+✨ YOU ONLY PAY ELECTRICITY
+
+That $2K at Resipointe is effective price AFTER 2 months free.
+Listed at $2,400/mo — you get 2 months free spread over your lease.
+
+It makes zero sense to overpay for NYC. Zero.
+
+🔗 Link in bio — book a tour
+#GenZ #apartmenthunting #NYC #Newarkapartments #savemoney #adulting #firstapartment<br><button class="copy-btn" onclick="copyCaption(5)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram stories" data-audience="retargeting">
+    <div class="card-top">
+      <div class="card-num">06</div>
+      <span class="card-platform">Instagram Stories</span>
+    </div>
+    <div class="card-audience">Retargeting</div>
+    <div class="card-hook">Still looking? 2 months free ends soon ⏰</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Urgency story with poll</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Swipe up → Book tour</div>
+      <div class="card-meta-item"><strong>Target:</strong> Website visitors retargeting</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 4-6 leads/week</span></div>
+    <button class="expand-btn" data-id="6" onclick="toggleCaption(6)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-6">Story with poll: 'When are you looking to move?' + countdown timer<br><button class="copy-btn" onclick="copyCaption(6)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="relocation">
+    <div class="card-top">
+      <div class="card-num">07</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Relocation</div>
+    <div class="card-hook">Moving to the NYC area? Don't make the mistake everyone makes 🚫</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Educational talking head</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> Relocation searches, out-of-state movers</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 5-8 leads/week</span></div>
+    <button class="expand-btn" data-id="7" onclick="toggleCaption(7)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-7">Moving to the NYC metro? Read this before you sign anything 📋
+
+Most people moving to NYC for work automatically look for apartments IN New York City. That's the $4K+ mistake.
+
+Here's what smart movers do:
+1. Find a job in Manhattan ✅
+2. Live in Newark, NJ ✅ (20 min PATH)
+3. Save $20,000+ per year ✅
+4. Pay ZERO NYC income tax ✅
+
+Iron Pointe at Resipointe — 39 Madison St, Newark:
+🏠 1BR from $2,000/mo effective
+🏠 2BR from $2,750/mo effective
+⚡ Electricity only
+🔒 24hr live security
+🏋️ Full gym + rooftop
+2 MONTHS FREE on 12-month lease
+
+DM "MOVE" for our relocation guide
+#relocation #movingtoNYC #NYCmove #Newarkapartments #NJliving #relocationtips<br><button class="copy-btn" onclick="copyCaption(7)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="finance/fire community">
+    <div class="card-top">
+      <div class="card-num">08</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Finance/FIRE Community</div>
+    <div class="card-hook">The $30,000/year arbitrage hiding in plain sight 💰</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Finance influencer style</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> Finance, FIRE, wealth-building audience</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 4-7 leads/week</span></div>
+    <button class="expand-btn" data-id="8" onclick="toggleCaption(8)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-8">The Newark housing arbitrage nobody talks about 💰
+
+If you earn $150K working in Manhattan:
+
+🗽 Scenario A — Live in NYC:
+Rent: $3,800/mo = $45,600/yr
+NYC income tax: $5,820/yr
+Total housing cost: $51,420/yr
+
+🚆 Scenario B — Live in Newark (Resipointe):
+Rent: $2,000/mo effective = $24,000/yr
+NJ income tax (no NYC surcharge): $0 extra
+PATH pass: $1,320/yr
+Total: $25,320/yr
+
+Annual savings: $26,100 💸
+Over 5 years: $130,500 💸💸
+
+That's a down payment on a property.
+That's max 401K contributions for 3 years.
+That's financial freedom, accelerated.
+
+20 min to Midtown. Same job. Same city life. Way more money.
+
+DM "NUMBERS" for our full cost breakdown
+#personalfinance #FIRE #financialindependence #realestate #Newarkapartments<br><button class="copy-btn" onclick="copyCaption(8)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram reels" data-audience="pet owners">
+    <div class="card-top">
+      <div class="card-num">09</div>
+      <span class="card-platform">Instagram Reels</span>
+    </div>
+    <div class="card-audience">Pet Owners</div>
+    <div class="card-hook">Luxury pet-friendly apartments in Newark — here's what $75/mo gets your dog 🐕</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Pet lifestyle content</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> Dog owners, pet-friendly apartment searchers</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="9" onclick="toggleCaption(9)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-9">Pet-friendly luxury apartments in Newark 🐕🏠
+
+Resipointe welcomes your furry family:
+🐶 Dogs & cats welcome
+💰 Pet fee: just $75/mo
+🔐 $500 refundable deposit
+🌿 Rooftop terrace for outdoor time
+🏘️ Ironbound neighborhood — super walkable
+🦮 Parks and green spaces nearby
+
+Plus everything your PET OWNER heart wants:
+✅ Luxury finishes (no more embarrassing apartment backgrounds on FaceTime)
+✅ In-unit W/D (wash those dog beds properly)
+✅ 24hr security
+✅ From $2,000/mo effective + 2 months FREE
+
+20 min to Manhattan. Bring the dog.
+
+DM "PET" for pet policy details
+#petfriendlyapartments #dogfriendly #Newarkapartments #dogowners #apartmenthunting #NJliving<br><button class="copy-btn" onclick="copyCaption(9)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="instagram carousel" data-audience="cost breakdown">
+    <div class="card-top">
+      <div class="card-num">10</div>
+      <span class="card-platform">Instagram Carousel</span>
+    </div>
+    <div class="card-audience">Cost Breakdown</div>
+    <div class="card-hook">Slide 1: The TRUE cost of living in Newark vs NYC (with math) 📊</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> 10-slide educational carousel</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Save this post + link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC renters researching NJ</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 5-8 leads/week</span></div>
+    <button class="expand-btn" data-id="10" onclick="toggleCaption(10)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-10">Carousel: NYC rent vs Newark, tax math, commute calc, unit showcase<br><button class="copy-btn" onclick="copyCaption(10)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="gen z apartment tour">
+    <div class="card-top">
+      <div class="card-num">11</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">Gen Z Apartment Tour</div>
+    <div class="card-hook">come apartment hunting with me in Newark NJ 🏠 $2K/mo luxury</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> VLOG walking tour</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> TikTok 20-28, apartment content</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $25/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 8-15 leads/week</span></div>
+    <button class="expand-btn" data-id="11" onclick="toggleCaption(11)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-11">come apartment hunting with me 🏠 Newark NJ edition
+
+this is what $2,000/mo effective gets you and i'm SHOCKED
+
+✅ island kitchen with black matte cabinets
+✅ literal soaking tub
+✅ walk-in closet
+✅ in-unit washer dryer
+✅ rooftop with nyc views
+✅ gym, co-working, 24hr security
+✅ PATH to manhattan 20 min
+
+and you only pay ELECTRICITY. everything else included.
+
+2 months free on a 12-month lease makes it $2,000/mo effective
+
+link in bio 🔗 to schedule a tour
+
+#apartmenthunting #Newark #NJapartments #apartmenttour #luxuryapartment #GenZ #NYC #movingout<br><button class="copy-btn" onclick="copyCaption(11)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="nyc tax shock">
+    <div class="card-top">
+      <div class="card-num">12</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">NYC Tax Shock</div>
+    <div class="card-hook">NYC just charged you $5,000 in city taxes and you didn't even notice 😳</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Shocking facts format</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> TikTok NYC workers 25-35</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 6-10 leads/week</span></div>
+    <button class="expand-btn" data-id="12" onclick="toggleCaption(12)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-12">NYC local income tax explainer with Newark solution + unit showcase<br><button class="copy-btn" onclick="copyCaption(12)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="stitch/duet bait">
+    <div class="card-top">
+      <div class="card-num">13</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">Stitch/Duet Bait</div>
+    <div class="card-hook">Replying to comments about NYC apartments being unaffordable</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Response video / stitch bait</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC apartment content viewers</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 5-8 leads/week</span></div>
+    <button class="expand-btn" data-id="13" onclick="toggleCaption(13)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-13">Duet-bait: respond to viral 'NYC rent is insane' videos with Newark solution<br><button class="copy-btn" onclick="copyCaption(13)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="pilots/aviation">
+    <div class="card-top">
+      <div class="card-num">14</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">Pilots/Aviation</div>
+    <div class="card-hook">POV: you're a pilot and your apartment is 5 min from EWR ✈️</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Day in the life</div>
+      <div class="card-meta-item"><strong>CTA:</strong> DM or link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> Aviation TikTok, pilots, flight attendants</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="14" onclick="toggleCaption(14)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-14">Day in the life of a pilot at Resipointe — early departure, rooftop decompress<br><button class="copy-btn" onclick="copyCaption(14)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="financial tips">
+    <div class="card-top">
+      <div class="card-num">15</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">Financial Tips</div>
+    <div class="card-hook">I moved 20 min from NYC and saved $30K last year. Here's how 💸</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Finance tip video</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Comment MOVE for details</div>
+      <div class="card-meta-item"><strong>Target:</strong> Finance TikTok 25-40</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 6-10 leads/week</span></div>
+    <button class="expand-btn" data-id="15" onclick="toggleCaption(15)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-15">Newark vs NYC full financial breakdown with real numbers<br><button class="copy-btn" onclick="copyCaption(15)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="tiktok" data-audience="ironbound culture">
+    <div class="card-top">
+      <div class="card-num">16</div>
+      <span class="card-platform">TikTok</span>
+    </div>
+    <div class="card-audience">Ironbound Culture</div>
+    <div class="card-hook">Nobody talks about how AMAZING the Ironbound neighborhood is 🇵🇹</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Neighborhood tour</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Link in bio</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC food/culture audience</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $10/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="16" onclick="toggleCaption(16)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-16">Ironbound neighborhood food tour — Seabra's, Ferry St, Portugal Day<br><button class="copy-btn" onclick="copyCaption(16)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="facebook ads" data-audience="nyc commuters 30-50">
+    <div class="card-top">
+      <div class="card-num">17</div>
+      <span class="card-platform">Facebook Ads</span>
+    </div>
+    <div class="card-audience">NYC Commuters 30-50</div>
+    <div class="card-hook">Newark luxury apartments from $2,000/mo — 20 min PATH to Manhattan</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Lead Gen Ad (Facebook native form)</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Get floor plans</div>
+      <div class="card-meta-item"><strong>Target:</strong> FB: NYC 30-50, $80K+, commuter/real estate interes</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $30/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 10-15 leads/week</span></div>
+    <button class="expand-btn" data-id="17" onclick="toggleCaption(17)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-17">Facebook lead gen form: name, email, phone, unit interest, move-in date<br><button class="copy-btn" onclick="copyCaption(17)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="facebook ads" data-audience="relocation companies">
+    <div class="card-top">
+      <div class="card-num">18</div>
+      <span class="card-platform">Facebook Ads</span>
+    </div>
+    <div class="card-audience">Relocation Companies</div>
+    <div class="card-hook">Relocation managers: save your employees $15K/year in housing costs</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> B2B lead gen</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Download relocation guide</div>
+      <div class="card-meta-item"><strong>Target:</strong> HR managers, relocation coordinators, corporate</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="18" onclick="toggleCaption(18)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-18">Corporate relocation guide PDF lead magnet + follow-up sequence<br><button class="copy-btn" onclick="copyCaption(18)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="facebook retargeting" data-audience="website visitors">
+    <div class="card-top">
+      <div class="card-num">19</div>
+      <span class="card-platform">Facebook Retargeting</span>
+    </div>
+    <div class="card-audience">Website Visitors</div>
+    <div class="card-hook">You looked — now book. 2 months free ends soon ⏰</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Dynamic retargeting</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Schedule tour</div>
+      <div class="card-meta-item"><strong>Target:</strong> Website visitors last 30 days</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 4-7 leads/week</span></div>
+    <button class="expand-btn" data-id="19" onclick="toggleCaption(19)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-19">Urgency-based retargeting with specific unit they viewed<br><button class="copy-btn" onclick="copyCaption(19)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="facebook groups" data-audience="nyc housing groups">
+    <div class="card-top">
+      <div class="card-num">20</div>
+      <span class="card-platform">Facebook Groups</span>
+    </div>
+    <div class="card-audience">NYC Housing Groups</div>
+    <div class="card-hook">Community post: honest review of Newark as a NYC commuter</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Organic community post</div>
+      <div class="card-meta-item"><strong>CTA:</strong> DM for details</div>
+      <div class="card-meta-item"><strong>Target:</strong> NYC housing, relocation, expat Facebook groups</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 organic</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-6 leads/week</span></div>
+    <button class="expand-btn" data-id="20" onclick="toggleCaption(20)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-20">Authentic post in NYC housing groups, Bronx/Brooklyn/Queens movers groups<br><button class="copy-btn" onclick="copyCaption(20)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="google search ads" data-audience="high intent renters">
+    <div class="card-top">
+      <div class="card-num">21</div>
+      <span class="card-platform">Google Search Ads</span>
+    </div>
+    <div class="card-audience">High Intent Renters</div>
+    <div class="card-hook">Keywords: luxury apartments Newark NJ, apartments near PATH train NJ</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Search ad → landing page</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Schedule tour</div>
+      <div class="card-meta-item"><strong>Target:</strong> Search: Newark apartments, NJ luxury apartments</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $40/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 8-12 leads/week</span></div>
+    <button class="expand-btn" data-id="21" onclick="toggleCaption(21)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-21">Ad copy: 'Newark Luxury 1BR — $2,000/mo Effective | 20 Min to Manhattan | 2 Months Free'<br><button class="copy-btn" onclick="copyCaption(21)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="google search ads" data-audience="competitor keywords">
+    <div class="card-top">
+      <div class="card-num">22</div>
+      <span class="card-platform">Google Search Ads</span>
+    </div>
+    <div class="card-audience">Competitor Keywords</div>
+    <div class="card-hook">Keywords: Newark Urby, 55 Union Newark, Ballantine Newark apartments</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Competitor conquest search</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Compare prices</div>
+      <div class="card-meta-item"><strong>Target:</strong> Competitor brand searches</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $25/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 4-6 leads/week</span></div>
+    <button class="expand-btn" data-id="22" onclick="toggleCaption(22)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-22">Show up when people search competitors — highlight 2 mo free + elec-only advantage<br><button class="copy-btn" onclick="copyCaption(22)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="google display / youtube" data-audience="nyc renters">
+    <div class="card-top">
+      <div class="card-num">23</div>
+      <span class="card-platform">Google Display / YouTube</span>
+    </div>
+    <div class="card-audience">NYC Renters</div>
+    <div class="card-hook">30-second YouTube pre-roll: Newark luxury tour vs NYC pricing</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> YouTube pre-roll ad</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Skip ad? Or book a tour...</div>
+      <div class="card-meta-item"><strong>Target:</strong> YouTube NYC apartment, real estate content viewers</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $20/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-5 leads/week</span></div>
+    <button class="expand-btn" data-id="23" onclick="toggleCaption(23)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-23">15-sec unskippable + 30-sec skippable showing apartment tour + price comparison<br><button class="copy-btn" onclick="copyCaption(23)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="google maps / local" data-audience="local search">
+    <div class="card-top">
+      <div class="card-num">24</div>
+      <span class="card-platform">Google Maps / Local</span>
+    </div>
+    <div class="card-audience">Local Search</div>
+    <div class="card-hook">Google My Business: luxury apartments Newark NJ</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> GMB optimization + posts</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Call or book tour</div>
+      <div class="card-meta-item"><strong>Target:</strong> Local searches</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 organic</div>
+    </div>
+    <div><span class="card-leads">&#127919; 2-4 leads/week</span></div>
+    <button class="expand-btn" data-id="24" onclick="toggleCaption(24)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-24">Weekly GMB posts: unit availability, photos, offers, events<br><button class="copy-btn" onclick="copyCaption(24)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="linkedin" data-audience="finance/tech professionals">
+    <div class="card-top">
+      <div class="card-num">25</div>
+      <span class="card-platform">LinkedIn</span>
+    </div>
+    <div class="card-audience">Finance/Tech Professionals</div>
+    <div class="card-hook">The $30K/year opportunity cost of living in Manhattan instead of Newark</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Long-form LinkedIn article</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Comment for full cost breakdown</div>
+      <div class="card-meta-item"><strong>Target:</strong> LinkedIn: NYC finance, tech, consulting 28-45, $10</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $25/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 4-7 leads/week</span></div>
+    <button class="expand-btn" data-id="25" onclick="toggleCaption(25)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-25">The $30,000/year opportunity cost most Manhattan renters ignore
+
+Every year, 300,000+ professionals commute into Manhattan from NJ. They figured out what most NYC renters haven't:
+
+You don't have to live where you work.
+
+Here's the math for a $150K earner:
+
+LIVING IN NYC (1BR, $3,800/mo):
+• Rent: $45,600/yr
+• NYC local income tax: $5,820/yr  
+• Total: $51,420/yr
+
+LIVING IN NEWARK, NJ (Resipointe, $2,000/mo effective):
+• Rent: $24,000/yr
+• NJ income tax: no NYC surcharge
+• PATH pass: $1,320/yr
+• Total: $25,320/yr
+
+ANNUAL DIFFERENCE: $26,100 💰
+
+20 minute PATH ride. Same job. Same Manhattan lunch spots. $26K more in your pocket.
+
+Iron Pointe at 39 Madison St is accepting applications now. 2 months free, electricity only.
+
+Drop a 💰 if you've done this math before.<br><button class="copy-btn" onclick="copyCaption(25)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="linkedin" data-audience="relocation/hr">
+    <div class="card-top">
+      <div class="card-num">26</div>
+      <span class="card-platform">LinkedIn</span>
+    </div>
+    <div class="card-audience">Relocation/HR</div>
+    <div class="card-hook">Why more corporate relocation packages are choosing Newark over NYC</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> B2B thought leadership</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Connect for partnership</div>
+      <div class="card-meta-item"><strong>Target:</strong> LinkedIn: HR, relocation managers, corporate real </div>
+      <div class="card-meta-item"><strong>Budget:</strong> $15/day</div>
+    </div>
+    <div><span class="card-leads">&#127919; 2-4 leads/week</span></div>
+    <button class="expand-btn" data-id="26" onclick="toggleCaption(26)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-26">B2B piece on Newark relocation advantages for corporate HR decision makers<br><button class="copy-btn" onclick="copyCaption(26)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="email drip" data-audience="lead nurture">
+    <div class="card-top">
+      <div class="card-num">27</div>
+      <span class="card-platform">Email Drip</span>
+    </div>
+    <div class="card-audience">Lead Nurture</div>
+    <div class="card-hook">5-email sequence for new leads: welcome → social proof → urgency → tour → close</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Email automation</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Book tour in email 3</div>
+      <div class="card-meta-item"><strong>Target:</strong> All inbound leads</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 (HubSpot)</div>
+    </div>
+    <div><span class="card-leads">&#127919; 8-12 conversions leads/week</span></div>
+    <button class="expand-btn" data-id="27" onclick="toggleCaption(27)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-27">Email 1 (Day 0): Welcome + apartment photos + 2 months free details
+Email 2 (Day 2): The Newark math — show $26K savings with their specific salary
+Email 3 (Day 4): Social proof — resident stories + rooftop photos
+Email 4 (Day 7): Urgency — limited units, offer expiring
+Email 5 (Day 10): Final CTA — book tour or call (201) 449-6850<br><button class="copy-btn" onclick="copyCaption(27)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="sms campaign" data-audience="hot leads">
+    <div class="card-top">
+      <div class="card-num">28</div>
+      <span class="card-platform">SMS Campaign</span>
+    </div>
+    <div class="card-audience">Hot Leads</div>
+    <div class="card-hook">Text: 'Hi [name], saw you were interested in Iron Pointe. Unit 201 is available at $2,083/mo. Tour this week?'</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Personalized SMS</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Reply YES to book</div>
+      <div class="card-meta-item"><strong>Target:</strong> All form submissions within 5 min</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 (Twilio/HubSpot)</div>
+    </div>
+    <div><span class="card-leads">&#127919; 5-8 conversions leads/week</span></div>
+    <button class="expand-btn" data-id="28" onclick="toggleCaption(28)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-28">5-minute response time SMS dramatically increases lead-to-tour conversion<br><button class="copy-btn" onclick="copyCaption(28)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="reddit" data-audience="r/nycapartments, r/newjersey">
+    <div class="card-top">
+      <div class="card-num">29</div>
+      <span class="card-platform">Reddit</span>
+    </div>
+    <div class="card-audience">r/NYCapartments, r/newjersey</div>
+    <div class="card-hook">Honest answer to 'is Newark worth it for NYC commuters?'</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Organic community replies</div>
+      <div class="card-meta-item"><strong>CTA:</strong> DM for details</div>
+      <div class="card-meta-item"><strong>Target:</strong> Reddit: r/NYCapartments, r/newjersey, r/personalfi</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 organic</div>
+    </div>
+    <div><span class="card-leads">&#127919; 2-4 leads/week</span></div>
+    <button class="expand-btn" data-id="29" onclick="toggleCaption(29)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-29">Authentic, helpful answers to apartment hunting questions. No hard sell.<br><button class="copy-btn" onclick="copyCaption(29)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="nextdoor / quora" data-audience="local community">
+    <div class="card-top">
+      <div class="card-num">30</div>
+      <span class="card-platform">Nextdoor / Quora</span>
+    </div>
+    <div class="card-audience">Local Community</div>
+    <div class="card-hook">Answering: 'Best luxury apartments in Newark NJ?'</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Community Q&A</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Visit resipointe.netlify.app</div>
+      <div class="card-meta-item"><strong>Target:</strong> Nextdoor Newark + surrounding towns</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $0 organic</div>
+    </div>
+    <div><span class="card-leads">&#127919; 2-3 leads/week</span></div>
+    <button class="expand-btn" data-id="30" onclick="toggleCaption(30)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-30">Nextdoor posts targeting NJ suburbs where NYC commuters already live<br><button class="copy-btn" onclick="copyCaption(30)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="qr code campaign" data-audience="foot traffic">
+    <div class="card-top">
+      <div class="card-num">31</div>
+      <span class="card-platform">QR Code Campaign</span>
+    </div>
+    <div class="card-audience">Foot Traffic</div>
+    <div class="card-hook">QR codes at Penn Station, Newark Broad St, EWR Terminal B</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Physical QR → landing page</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Scan → see units</div>
+      <div class="card-meta-item"><strong>Target:</strong> Commuters at transit hubs</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $200/mo printing</div>
+    </div>
+    <div><span class="card-leads">&#127919; 3-6 leads/week</span></div>
+    <button class="expand-btn" data-id="31" onclick="toggleCaption(31)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-31">QR code posters at Newark Penn Station, PATH stops, EWR terminal<br><button class="copy-btn" onclick="copyCaption(31)">Copy Caption</button></div>
+  </div>
+  <div class="card" data-platform="referral program" data-audience="current residents">
+    <div class="card-top">
+      <div class="card-num">32</div>
+      <span class="card-platform">Referral Program</span>
+    </div>
+    <div class="card-audience">Current Residents</div>
+    <div class="card-hook">Refer a friend → get $500 off your rent</div>
+    <div class="card-meta">
+      <div class="card-meta-item"><strong>Format:</strong> Resident referral</div>
+      <div class="card-meta-item"><strong>CTA:</strong> Get your referral link</div>
+      <div class="card-meta-item"><strong>Target:</strong> Current residents</div>
+      <div class="card-meta-item"><strong>Budget:</strong> $500/referral</div>
+    </div>
+    <div><span class="card-leads">&#127919; 2-4 leads/week</span></div>
+    <button class="expand-btn" data-id="32" onclick="toggleCaption(32)">View Caption & Copy &#8595;</button>
+    <div class="caption-box" id="cap-32">Every resident gets a unique Bitly link to track their referrals<br><button class="copy-btn" onclick="copyCaption(32)">Copy Caption</button></div>
+  </div>
+</div>
+
+<div class="weekly-total">
+  <h2>Projected 50–100+ Leads Per Week</h2>
+  <p>With full deployment across all 32 campaigns at ~$350/day total budget. Organic campaigns (Reddit, Google My Business, Nextdoor) add leads at zero cost.</p>
+  <p style="margin-top:.75rem;font-size:.8rem;opacity:.5">Scale paid campaigns based on cost-per-lead. Target: under $15 CPL. Tour-to-lease conversion goal: 20-30%.</p>
+</div>
+
+<script>
+var CAPS = {"1": "POV: you're paying $4,200/mo for a NYC 1BR with zero amenities \ud83d\ude36\n\nMeanwhile this Newark apartment has:\n\u2705 Black matte kitchen + stainless steel\n\u2705 Designer bathroom with soaking tub\n\u2705 Rooftop with NYC skyline views\n\u2705 Gym, co-working, 24hr security\n\u2705 PATH to Midtown in 20 min\n\u2705 $2,000/mo effective (2 months FREE)\n\u2705 You only pay ELECTRICITY\n\nSave $25,000+ a year. I'm not kidding.\n\n\ud83d\udd17 Link in bio to see all units\n\ud83d\udcde (201) 449-6850\n.\n.\n#NYCapartments #Newarkapartments #PATHtrain #NJliving #luxuryapartment #apartmenttour #NYCcommuter #affordableluxury #NewarkNJ #resipointe", "2": "If you earn $100,000 in NYC you're paying the city $3,876 in local income tax \ud83e\udd2f\n\n$150K salary? That's $5,800 gone.\n$200K salary? That's $7,900 gone.\n\nEvery. Single. Year.\n\nMove to Newark, NJ. Keep EVERY penny.\n\nPATH to Midtown: 20 minutes\nLuxury 1BR from: $2,000/mo effective\nYou only pay: electricity\n\nThat's $5,800+ back in your pocket + $25K saved on rent vs Manhattan.\n\nWe're talking $30,000+ a year difference.\n\nLink in bio \ud83d\udc46\n#taxsavings #NYC #NJliving #financetips #moneysaving #Newarkapartments #PATHtrain #NYCincome", "3": "APARTMENT TOUR: Newark luxury 1BR \u2014 $2,000/mo effective \ud83c\udfe0\n\nWhat you get:\n\ud83c\udf73 Island kitchen with black matte cabinets\n\ud83d\udec1 Large-format tile bathroom with soaking tub\n\ud83d\udebf Walk-in shower with designer fixtures\n\ud83d\udc54 Walk-in closet\n\ud83e\udee7 In-unit washer/dryer\n\ud83d\udcf6 Gigabit fiber included\n\ud83d\udd11 Smart home keyless entry\n\nBuilding amenities:\n\ud83c\udfd9\ufe0f Rooftop lounge with NYC skyline views\n\ud83d\udcaa 24/7 gym\n\ud83d\udce6 Package lockers\n\ud83d\udd12 24hr live security\n\ud83d\ude97 EV charging\n\u26a1 You only pay ELECTRICITY\n\n20 min to Manhattan by PATH. No broker fee. 2 months FREE.\n\nSave this post \ud83d\udccc and DM for a tour!\n#apartmenttour #Newarkapartments #luxuryapartment #apartmenthunting #NewarkNJ #NJliving", "4": "For pilots and flight crew based at EWR \u2708\ufe0f\n\nEWR is literally 5 minutes away \ud83d\uddfa\ufe0f\n\nWhat Iron Pointe gives you:\n\u2705 24-hour live security (your stuff is safe while you fly)\n\u2705 Smart home \u2014 keyless, app-controlled\n\u2705 Package lockers for deliveries while you're away\n\u2705 24/7 gym to maintain fitness between flights\n\u2705 Rooftop to decompress after long hauls\n\u26a1 Electricity only \u2014 no confusing utility bills\n\nFrom $2,000/mo effective with 2 months FREE\nIndoor parking available $300/mo\n\nDM us for crew lease options\n\ud83d\udcde (201) 449-6850\n#pilotsofinstagram #flightcrew #EWR #Newarkairport #crewlife #pilotlife #aviationlife #Newarkapartments", "5": "$2,000/mo in NYC: a 400sqft studio in a 6-floor walkup \ud83d\ude43\n$2,000/mo in Newark: THIS \ud83d\udc47\n\n\u2728 Full 1BR with black matte island kitchen\n\u2728 Designer bathroom with soaking tub + large tile\n\u2728 Walk-in closet + in-unit washer/dryer\n\u2728 Rooftop with NYC skyline views\n\u2728 24/7 gym + co-working lounge\n\u2728 20 min PATH to Manhattan\n\u2728 0 NYC income tax (save $3-5K/yr)\n\u2728 YOU ONLY PAY ELECTRICITY\n\nThat $2K at Resipointe is effective price AFTER 2 months free.\nListed at $2,400/mo \u2014 you get 2 months free spread over your lease.\n\nIt makes zero sense to overpay for NYC. Zero.\n\n\ud83d\udd17 Link in bio \u2014 book a tour\n#GenZ #apartmenthunting #NYC #Newarkapartments #savemoney #adulting #firstapartment", "6": "Story with poll: 'When are you looking to move?' + countdown timer", "7": "Moving to the NYC metro? Read this before you sign anything \ud83d\udccb\n\nMost people moving to NYC for work automatically look for apartments IN New York City. That's the $4K+ mistake.\n\nHere's what smart movers do:\n1. Find a job in Manhattan \u2705\n2. Live in Newark, NJ \u2705 (20 min PATH)\n3. Save $20,000+ per year \u2705\n4. Pay ZERO NYC income tax \u2705\n\nIron Pointe at Resipointe \u2014 39 Madison St, Newark:\n\ud83c\udfe0 1BR from $2,000/mo effective\n\ud83c\udfe0 2BR from $2,750/mo effective\n\u26a1 Electricity only\n\ud83d\udd12 24hr live security\n\ud83c\udfcb\ufe0f Full gym + rooftop\n2 MONTHS FREE on 12-month lease\n\nDM \"MOVE\" for our relocation guide\n#relocation #movingtoNYC #NYCmove #Newarkapartments #NJliving #relocationtips", "8": "The Newark housing arbitrage nobody talks about \ud83d\udcb0\n\nIf you earn $150K working in Manhattan:\n\n\ud83d\uddfd Scenario A \u2014 Live in NYC:\nRent: $3,800/mo = $45,600/yr\nNYC income tax: $5,820/yr\nTotal housing cost: $51,420/yr\n\n\ud83d\ude86 Scenario B \u2014 Live in Newark (Resipointe):\nRent: $2,000/mo effective = $24,000/yr\nNJ income tax (no NYC surcharge): $0 extra\nPATH pass: $1,320/yr\nTotal: $25,320/yr\n\nAnnual savings: $26,100 \ud83d\udcb8\nOver 5 years: $130,500 \ud83d\udcb8\ud83d\udcb8\n\nThat's a down payment on a property.\nThat's max 401K contributions for 3 years.\nThat's financial freedom, accelerated.\n\n20 min to Midtown. Same job. Same city life. Way more money.\n\nDM \"NUMBERS\" for our full cost breakdown\n#personalfinance #FIRE #financialindependence #realestate #Newarkapartments", "9": "Pet-friendly luxury apartments in Newark \ud83d\udc15\ud83c\udfe0\n\nResipointe welcomes your furry family:\n\ud83d\udc36 Dogs & cats welcome\n\ud83d\udcb0 Pet fee: just $75/mo\n\ud83d\udd10 $500 refundable deposit\n\ud83c\udf3f Rooftop terrace for outdoor time\n\ud83c\udfd8\ufe0f Ironbound neighborhood \u2014 super walkable\n\ud83e\uddae Parks and green spaces nearby\n\nPlus everything your PET OWNER heart wants:\n\u2705 Luxury finishes (no more embarrassing apartment backgrounds on FaceTime)\n\u2705 In-unit W/D (wash those dog beds properly)\n\u2705 24hr security\n\u2705 From $2,000/mo effective + 2 months FREE\n\n20 min to Manhattan. Bring the dog.\n\nDM \"PET\" for pet policy details\n#petfriendlyapartments #dogfriendly #Newarkapartments #dogowners #apartmenthunting #NJliving", "10": "Carousel: NYC rent vs Newark, tax math, commute calc, unit showcase", "11": "come apartment hunting with me \ud83c\udfe0 Newark NJ edition\n\nthis is what $2,000/mo effective gets you and i'm SHOCKED\n\n\u2705 island kitchen with black matte cabinets\n\u2705 literal soaking tub\n\u2705 walk-in closet\n\u2705 in-unit washer dryer\n\u2705 rooftop with nyc views\n\u2705 gym, co-working, 24hr security\n\u2705 PATH to manhattan 20 min\n\nand you only pay ELECTRICITY. everything else included.\n\n2 months free on a 12-month lease makes it $2,000/mo effective\n\nlink in bio \ud83d\udd17 to schedule a tour\n\n#apartmenthunting #Newark #NJapartments #apartmenttour #luxuryapartment #GenZ #NYC #movingout", "12": "NYC local income tax explainer with Newark solution + unit showcase", "13": "Duet-bait: respond to viral 'NYC rent is insane' videos with Newark solution", "14": "Day in the life of a pilot at Resipointe \u2014 early departure, rooftop decompress", "15": "Newark vs NYC full financial breakdown with real numbers", "16": "Ironbound neighborhood food tour \u2014 Seabra's, Ferry St, Portugal Day", "17": "Facebook lead gen form: name, email, phone, unit interest, move-in date", "18": "Corporate relocation guide PDF lead magnet + follow-up sequence", "19": "Urgency-based retargeting with specific unit they viewed", "20": "Authentic post in NYC housing groups, Bronx/Brooklyn/Queens movers groups", "21": "Ad copy: 'Newark Luxury 1BR \u2014 $2,000/mo Effective | 20 Min to Manhattan | 2 Months Free'", "22": "Show up when people search competitors \u2014 highlight 2 mo free + elec-only advantage", "23": "15-sec unskippable + 30-sec skippable showing apartment tour + price comparison", "24": "Weekly GMB posts: unit availability, photos, offers, events", "25": "The $30,000/year opportunity cost most Manhattan renters ignore\n\nEvery year, 300,000+ professionals commute into Manhattan from NJ. They figured out what most NYC renters haven't:\n\nYou don't have to live where you work.\n\nHere's the math for a $150K earner:\n\nLIVING IN NYC (1BR, $3,800/mo):\n\u2022 Rent: $45,600/yr\n\u2022 NYC local income tax: $5,820/yr  \n\u2022 Total: $51,420/yr\n\nLIVING IN NEWARK, NJ (Resipointe, $2,000/mo effective):\n\u2022 Rent: $24,000/yr\n\u2022 NJ income tax: no NYC surcharge\n\u2022 PATH pass: $1,320/yr\n\u2022 Total: $25,320/yr\n\nANNUAL DIFFERENCE: $26,100 \ud83d\udcb0\n\n20 minute PATH ride. Same job. Same Manhattan lunch spots. $26K more in your pocket.\n\nIron Pointe at 39 Madison St is accepting applications now. 2 months free, electricity only.\n\nDrop a \ud83d\udcb0 if you've done this math before.", "26": "B2B piece on Newark relocation advantages for corporate HR decision makers", "27": "Email 1 (Day 0): Welcome + apartment photos + 2 months free details\nEmail 2 (Day 2): The Newark math \u2014 show $26K savings with their specific salary\nEmail 3 (Day 4): Social proof \u2014 resident stories + rooftop photos\nEmail 4 (Day 7): Urgency \u2014 limited units, offer expiring\nEmail 5 (Day 10): Final CTA \u2014 book tour or call (201) 449-6850", "28": "5-minute response time SMS dramatically increases lead-to-tour conversion", "29": "Authentic, helpful answers to apartment hunting questions. No hard sell.", "30": "Nextdoor posts targeting NJ suburbs where NYC commuters already live", "31": "QR code posters at Newark Penn Station, PATH stops, EWR terminal", "32": "Every resident gets a unique Bitly link to track their referrals"};
+
+function toggleCaption(id) {
+  var box = document.getElementById("cap-" + id);
+  var btn = document.querySelector("[data-id='" + id + "']");
+  box.classList.toggle("show");
+  btn.textContent = box.classList.contains("show") ? "Hide ▲" : "View Caption & Copy ↓";
+}
+function copyCaption(id) {
+  var text = CAPS[String(id)] || "";
+  if (navigator.clipboard) navigator.clipboard.writeText(text);
+  var btn = event.target;
+  btn.textContent = "Copied!";
+  setTimeout(function() { btn.textContent = "Copy Caption"; }, 2000);
+}
+function filterCamps(kw, btn) {
+  document.querySelectorAll(".filter-btn").forEach(function(b) { b.classList.remove("on"); });
+  btn.classList.add("on");
+  document.querySelectorAll(".card").forEach(function(c) {
+    if (kw === "all") { c.style.display = ""; return; }
+    var plat = c.getAttribute("data-platform") || "";
+    var aud = c.getAttribute("data-audience") || "";
+    var match = plat.indexOf(kw.toLowerCase()) >= 0 || aud.indexOf(kw.toLowerCase()) >= 0;
+    c.style.display = match ? "" : "none";
+  });
+}
+</script>
+</body>
+</html>
