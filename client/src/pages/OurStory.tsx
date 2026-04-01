@@ -39,12 +39,12 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663360032476/eCRtf
 
 // ─── Timeline ─────────────────────────────────────────────────────────────────
 const TIMELINE = [
-  { year: "2005", title: "Founded", body: "First acquisitions in Newark's Ironbound and Downtown districts.", icon: Building2 },
-  { year: "2010", title: "First Ground-Up Build", body: "24-unit Market Street building — modern design, quality finishes.", icon: Hammer },
-  { year: "2015", title: "Portfolio of 5", body: "Over 200 luxury residences across Newark's best corridors.", icon: Award },
-  { year: "2019", title: "Iron Pointe Opens", body: "80 residences, rooftop terrace, NYC views, 24-hr security.", icon: Star },
+  { year: "[YEAR]", title: "Founded", body: "Resipointe begins with a vision: build homes in Newark that feel like luxury resorts.", icon: MapPin },
+  { year: "[YEAR]", title: "First Acquisition", body: "First properties acquired in Newark's Ironbound and Downtown districts.", icon: Hammer },
+  { year: "[YEAR]", title: "Portfolio Growth", body: "Portfolio expands across Newark's most sought-after neighborhoods.", icon: Award },
+  { year: "2024", title: "Iron Pointe Opens", body: "80 residences, rooftop terrace, NYC views, 24-hr live security.", icon: Star },
   { year: "2026", title: "Tenant Collaboration", body: "Formal program: future tenants shape upcoming building designs.", icon: Users },
-  { year: "2025+", title: "Next Chapter", body: "6 new developments shaped by your votes on this page.", icon: Sparkles },
+  { year: "2027+", title: "Next Chapter", body: "6 new developments shaped by your votes on this page.", icon: Sparkles },
 ];
 
 // ─── Pipeline ─────────────────────────────────────────────────────────────────
@@ -337,7 +337,7 @@ export default function OurStory() {
           {/* Stat strip */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-14">
             {[
-              { value: "20+", label: "Years in Newark", icon: Clock },
+              { value: "[X]+", label: "Years in Newark", icon: Clock },
               { value: "5", label: "Active Properties", icon: Building2 },
               { value: "245+", label: "Luxury Residences", icon: Users },
               { value: "6", label: "Projects in Pipeline", icon: Hammer },

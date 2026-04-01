@@ -107,3 +107,8 @@
 
 ## Pipeline Count Fix
 - [x] Fix all hardcoded "3 projects" references to show 6 pipeline projects
+
+## Timeline Accuracy Fix
+- [x] Remove AI-generated unverifiable dates from timeline
+- [x] Fix Iron Pointe year to 2024 (confirmed by external sources)
+- [x] Replace unverifiable milestones with developer-fill placeholders
