@@ -97,3 +97,10 @@
 
 ## Campaign Page Revert
 - [x] Restore original campaign page layout, apply coastal color theme only
+
+## Property & Pipeline Update
+- [x] Scrape real building photos from resipointe.com for all 5 active properties
+- [x] Update shared/data.ts: 5 active properties with real photos
+- [x] Update shared/data.ts: 6 pipeline projects (Nova Towers 700u, Central Pointe 77u, Madrega Pointe 150u, Mulberry Pointe 1000+u, Park View Pointe 150u, Newark Summit 514u)
+- [x] Update OurStory.tsx pipeline section with 6 new projects
+- [x] Update Home.tsx property grid with real building photos
