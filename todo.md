@@ -91,3 +91,9 @@
 - [x] Amenities campaign: resort amenities at home
 - [x] Add "Shape Our Next Building" collaboration CTA to each campaign page
 - [x] Ensure each campaign has unique hero color accent while sharing coastal base
+
+## Timeline Fix
+- [x] Change Tenant Collaboration milestone year from 2023 to 2026
+
+## Campaign Page Revert
+- [x] Restore original campaign page layout, apply coastal color theme only
