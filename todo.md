@@ -75,3 +75,8 @@
 - [x] Rewrite OurStory.tsx with blues/turquoise/white/beige palette
 - [x] Update global CSS tokens to coastal palette
 - [x] Update Navbar to match coastal palette
+
+## Text Readability & Copy Revision
+- [x] Darken all body text, labels, and muted text for readability
+- [x] Add dark text shadow on hero text over the photo
+- [x] Rewrite all copy with "We Build Homes Like Resorts" brand messaging

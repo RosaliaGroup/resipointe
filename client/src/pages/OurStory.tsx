@@ -17,20 +17,20 @@ import { GALLERY_IMAGES } from "@shared/data";
 // ─── Coastal Resort Color Tokens ─────────────────────────────────────────────
 const C = {
   // Blues & Turquoise
-  ocean:       "oklch(0.38 0.12 220)",   // deep ocean blue (headings, dark text)
-  oceanMid:    "oklch(0.48 0.14 215)",   // medium ocean blue
-  teal:        "oklch(0.58 0.14 200)",   // teal accent
-  turquoise:   "oklch(0.68 0.14 192)",   // bright turquoise
-  turqLight:   "oklch(0.78 0.10 192)",   // light turquoise
-  turqFaint:   "oklch(0.68 0.14 192 / 0.12)", // faint turquoise tint
-  sky:         "oklch(0.82 0.08 210)",   // soft sky blue
+  ocean:       "oklch(0.22 0.10 225)",   // very dark ocean — main headings
+  oceanMid:    "oklch(0.32 0.12 220)",   // dark ocean blue — subheadings
+  teal:        "oklch(0.42 0.12 205)",   // dark teal — readable on light bg
+  turquoise:   "oklch(0.55 0.14 192)",   // deeper turquoise — buttons/accents
+  turqLight:   "oklch(0.70 0.12 192)",   // medium turquoise — on dark bg only
+  turqFaint:   "oklch(0.55 0.14 192 / 0.12)", // faint tint
+  sky:         "oklch(0.35 0.10 215)",   // dark sky blue for body text
 
   // Warm neutrals
-  beige:       "oklch(0.95 0.018 75)",   // warm beige
-  sand:        "oklch(0.92 0.022 75)",   // slightly deeper sand
-  ivory:       "oklch(0.98 0.008 70)",   // near-white ivory
-  taupe:       "oklch(0.60 0.025 75)",   // warm taupe text
-  taupeLight:  "oklch(0.72 0.020 75)",   // muted taupe
+  beige:       "oklch(0.94 0.018 75)",   // warm beige bg
+  sand:        "oklch(0.90 0.022 75)",   // deeper sand bg
+  ivory:       "oklch(0.97 0.008 70)",   // near-white ivory bg
+  taupe:       "oklch(0.30 0.025 60)",   // DARK taupe — readable body text
+  taupeLight:  "oklch(0.42 0.020 65)",   // medium taupe — secondary text
 
   white:       "white",
 };
@@ -243,15 +243,15 @@ export default function OurStory() {
           alt="Luxury coastal resort living"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Gradient overlay — lighter at top, stronger at bottom for text */}
+        {/* Gradient overlay — stronger for text readability */}
         <div
           className="absolute inset-0"
           style={{
             background: `linear-gradient(to bottom,
-              oklch(0.38 0.12 220 / 0.15) 0%,
-              oklch(0.38 0.12 220 / 0.25) 40%,
-              oklch(0.38 0.12 220 / 0.75) 75%,
-              oklch(0.22 0.10 220 / 0.92) 100%)`
+              oklch(0.15 0.08 225 / 0.30) 0%,
+              oklch(0.15 0.08 225 / 0.50) 35%,
+              oklch(0.10 0.06 225 / 0.82) 70%,
+              oklch(0.08 0.05 225 / 0.96) 100%)`
           }}
         />
 
@@ -264,13 +264,19 @@ export default function OurStory() {
                 Built Together · Since 2005
               </span>
             </div>
-            <h1 className="font-serif text-5xl lg:text-7xl font-light leading-[1.05] mb-6 text-white">
-              We Don't Just Build
-              <span className="block italic" style={{ color: C.turqLight }}> Apartments.</span>
-              <span className="block">We Build Homes.</span>
+            <h1
+              className="font-serif text-5xl lg:text-7xl font-light leading-[1.05] mb-6 text-white"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.8)" }}
+            >
+              We Build Homes
+              <span className="block italic" style={{ color: C.turqLight }}> Like Resorts.</span>
+              <span className="block">You Deserve Both.</span>
             </h1>
-            <p className="text-base lg:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: "oklch(0.90 0.04 200)" }}>
-              For two decades, Resipointe has believed that the best homes are shaped by the people who live in them. Our story is one of community, craftsmanship, and a genuine commitment to making Newark's most livable neighborhoods even better.
+            <p
+              className="text-base lg:text-lg leading-relaxed mb-8 max-w-xl font-medium"
+              style={{ color: "oklch(0.96 0.02 200)", textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+            >
+              For two decades, Resipointe has built residences that feel like five-star resorts — without the five-star price tag. Resort-quality finishes, amenities, and community, right here in Newark. 20 minutes from Manhattan. Zero New York taxes.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -320,10 +326,10 @@ export default function OurStory() {
       {/* ── PHILOSOPHY BAND ──────────────────────────────────────────────── */}
       <section style={{ background: `linear-gradient(90deg, ${C.ocean} 0%, ${C.teal} 50%, ${C.ocean} 100%)` }} className="py-7">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-base font-light tracking-wide text-white leading-relaxed">
-            "A Resipointe home is not finished when the last nail is driven — it's finished when the community that lives there feels truly at home."
+          <p className="text-base font-semibold tracking-wide text-white leading-relaxed">
+            "We build homes like resorts — because you should feel on vacation every time you walk through your front door."
           </p>
-          <p className="text-xs mt-2 font-medium" style={{ color: C.turqLight }}>— Resipointe Development Team</p>
+          <p className="text-xs mt-2 font-semibold" style={{ color: C.turqLight }}>— Resipointe Development Team</p>
         </div>
       </section>
 
@@ -518,9 +524,9 @@ export default function OurStory() {
               <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.teal }}>Your Voice Builds This</span>
               <div className="h-px w-10" style={{ background: C.turquoise }} />
             </div>
-            <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>Build Your Dream Home With Us</h2>
-            <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: C.taupe }}>
-              We're designing our next three buildings right now. Every vote is reviewed by our design team — the most-requested features get built. This is real collaboration, not a survey that disappears.
+            <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>Help Us Build Your Dream Resort Home</h2>
+            <p className="text-sm max-w-2xl mx-auto leading-relaxed font-medium" style={{ color: C.taupe }}>
+              Our next three buildings are being designed right now. Every vote is reviewed by our design team — the most-requested resort-quality features get built. This is real collaboration, not a survey that disappears into a drawer.
             </p>
           </div>
 
@@ -530,9 +536,9 @@ export default function OurStory() {
             style={{ borderColor: `${C.turquoise}25`, background: C.beige }}
           >
             {[
-              { step: "01", title: "Vote on Features", desc: "Upvote what you'd love in your new home.", icon: ThumbsUp },
-              { step: "02", title: "Submit Your Idea", desc: "Have something we haven't listed? Tell us.", icon: Plus },
-              { step: "03", title: "We Build It", desc: "Top-voted features get prioritized in our pipeline.", icon: Hammer },
+              { step: "01", title: "Vote on Resort Features", desc: "Tell us which luxury features matter most to you — from rain showers to rooftop pools.", icon: ThumbsUp },
+              { step: "02", title: "Submit Your Dream", desc: "Have a resort feature we haven't thought of? Share it — we read every single one.", icon: Plus },
+              { step: "03", title: "We Build It In", desc: "The most-voted resort-quality features get designed into our next buildings.", icon: Hammer },
             ].map(({ step, title, desc, icon: Icon }) => (
               <div key={step} className="text-center">
                 <div
@@ -623,9 +629,9 @@ export default function OurStory() {
           >
             <div className="max-w-2xl mx-auto text-center">
               <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: C.turqLight }} />
-              <h3 className="font-serif text-2xl font-light text-white mb-2">Have a Feature We Haven't Listed?</h3>
-              <p className="text-sm mb-6" style={{ color: "oklch(0.85 0.06 200)" }}>
-                Our design team reads every submission. If your idea resonates with other future tenants, it could end up in our next building.
+              <h3 className="font-serif text-2xl font-light text-white mb-2">Dream of a Resort Feature We Haven't Listed?</h3>
+              <p className="text-sm mb-6 font-medium" style={{ color: "oklch(0.92 0.04 200)" }}>
+                Think of the best hotel amenity you've ever experienced. Now imagine having it at home. Tell us what it is — our design team reads every submission and the best ideas get built.
               </p>
 
               {submitted ? (
@@ -641,7 +647,7 @@ export default function OurStory() {
                   <Textarea
                     value={dreamFeature}
                     onChange={e => setDreamFeature(e.target.value)}
-                    placeholder="Describe your dream feature... e.g. 'A rooftop herb garden where residents can grow their own food'"
+                    placeholder="Describe your dream resort feature... e.g. 'A rooftop infinity pool with Manhattan skyline views' or 'A spa with sauna and steam room on the amenity floor'"
                     rows={4}
                     className="resize-none text-sm border"
                     style={{ background: "oklch(1 0 0 / 0.12)", color: "white", borderColor: "oklch(1 0 0 / 0.25)" }}
@@ -686,9 +692,9 @@ export default function OurStory() {
       >
         <div className="max-w-3xl mx-auto px-6">
           <ShieldCheck className="w-10 h-10 mx-auto mb-4" style={{ color: C.turqLight }} />
-          <h2 className="font-serif text-3xl font-light text-white mb-4">Ready to Make Newark Home?</h2>
-          <p className="text-sm mb-8" style={{ color: "oklch(0.88 0.06 200)" }}>
-            Tour our current properties or register your interest in an upcoming building. Either way, you're joining a community built with you in mind.
+          <h2 className="font-serif text-3xl font-light text-white mb-4">Ready to Live Like You're on Vacation?</h2>
+          <p className="text-sm mb-8 font-medium" style={{ color: "oklch(0.92 0.04 200)" }}>
+            Tour our current resort-quality residences or register your interest in an upcoming building. 20 minutes to Manhattan. Zero New York taxes. Five-star living, Newark prices.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
