@@ -7,30 +7,37 @@ import {
   Dumbbell, TreePine, Car, Dog, Package, Utensils, Bath,
   Tv, Wind, Sun, Coffee, Bike, ShieldCheck, Sparkles,
   ChevronRight, Send, ThumbsUp, Plus, CheckCircle2, MapPin, Calendar,
-  X, ZoomIn
+  X, ZoomIn, Waves
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { GALLERY_IMAGES } from "@shared/data";
 
-// ─── Color tokens (light sand / linen / warm-white) ─────────────────────────
+// ─── Coastal Resort Color Tokens ─────────────────────────────────────────────
 const C = {
-  navy:     "oklch(0.22 0.03 55)",   // dark espresso text (for text on light bg)
-  navyMid:  "oklch(0.35 0.04 55)",   // medium brown text
-  navyLight:"oklch(0.50 0.04 55)",   // muted brown
-  gold:     "oklch(0.65 0.11 65)",   // warm amber-gold accent
-  goldSoft: "oklch(0.72 0.09 65)",   // softer gold
-  goldFaint:"oklch(0.65 0.11 65 / 0.15)",
-  slate:    "oklch(0.45 0.03 55)",   // warm dark text
-  slateLight:"oklch(0.60 0.03 55)",  // muted warm text
-  cream:    "oklch(0.97 0.012 65)",  // warm cream/sand
-  sand:     "oklch(0.94 0.018 70)",  // light sand
-  linen:    "oklch(0.96 0.010 70)",  // very light linen
-  white:    "white",
+  // Blues & Turquoise
+  ocean:       "oklch(0.38 0.12 220)",   // deep ocean blue (headings, dark text)
+  oceanMid:    "oklch(0.48 0.14 215)",   // medium ocean blue
+  teal:        "oklch(0.58 0.14 200)",   // teal accent
+  turquoise:   "oklch(0.68 0.14 192)",   // bright turquoise
+  turqLight:   "oklch(0.78 0.10 192)",   // light turquoise
+  turqFaint:   "oklch(0.68 0.14 192 / 0.12)", // faint turquoise tint
+  sky:         "oklch(0.82 0.08 210)",   // soft sky blue
+
+  // Warm neutrals
+  beige:       "oklch(0.95 0.018 75)",   // warm beige
+  sand:        "oklch(0.92 0.022 75)",   // slightly deeper sand
+  ivory:       "oklch(0.98 0.008 70)",   // near-white ivory
+  taupe:       "oklch(0.60 0.025 75)",   // warm taupe text
+  taupeLight:  "oklch(0.72 0.020 75)",   // muted taupe
+
+  white:       "white",
 };
 
-// ─── Timeline (compact) ───────────────────────────────────────────────────────
+const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663360032476/eCRtfYiax3KEbRNYiyhxd5/coastal-hero-T9aAPB2gCrtQ9VU6YGcpiP.webp";
+
+// ─── Timeline ─────────────────────────────────────────────────────────────────
 const TIMELINE = [
   { year: "2005", title: "Founded", body: "First acquisitions in Newark's Ironbound and Downtown districts.", icon: Building2 },
   { year: "2010", title: "First Ground-Up Build", body: "24-unit Market Street building — modern design, quality finishes.", icon: Hammer },
@@ -47,7 +54,7 @@ const PIPELINE = [
     name: "Madison North",
     address: "55 Madison St, Newark NJ",
     status: "Pre-Development",
-    statusColor: C.gold,
+    statusColor: C.turquoise,
     units: 120,
     target: "Q3 2027",
     description: "A 12-story mixed-use tower rising north of Iron Pointe. Co-working floor, rooftop pool, ground-floor retail, and EV charging — shaped by tenant input.",
@@ -59,7 +66,7 @@ const PIPELINE = [
     name: "University Commons",
     address: "180 University Ave, Newark NJ",
     status: "Design Phase",
-    statusColor: "oklch(0.55 0.18 200)",
+    statusColor: C.teal,
     units: 85,
     target: "Q1 2027",
     description: "Micro-units and 1-bedrooms for young professionals and grad students. Walkable to NJIT, Rutgers-Newark, and the PATH train.",
@@ -71,7 +78,7 @@ const PIPELINE = [
     name: "Ironbound Lofts",
     address: "312 Ferry St, Newark NJ",
     status: "Land Acquisition",
-    statusColor: "oklch(0.55 0.14 140)",
+    statusColor: C.oceanMid,
     units: 60,
     target: "Q4 2027",
     description: "Loft-style residences celebrating the Ironbound's industrial heritage — exposed brick, high ceilings, open plans. Steps from Ferry Street dining.",
@@ -83,7 +90,7 @@ const PIPELINE = [
 // ─── Feature categories ───────────────────────────────────────────────────────
 const FEATURE_CATEGORIES = [
   {
-    id: "kitchen", label: "Kitchen & Dining", icon: Utensils, color: C.gold,
+    id: "kitchen", label: "Kitchen & Dining", icon: Utensils, color: C.turquoise,
     features: [
       { id: "quartz-counters", label: "Quartz Countertops" },
       { id: "island-kitchen", label: "Kitchen Island" },
@@ -94,7 +101,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "bathroom", label: "Bathroom & Spa", icon: Bath, color: "oklch(0.55 0.14 220)",
+    id: "bathroom", label: "Bathroom & Spa", icon: Bath, color: C.teal,
     features: [
       { id: "rain-shower", label: "Rain Shower Head" },
       { id: "soaking-tub", label: "Soaking Tub" },
@@ -105,7 +112,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "tech", label: "Smart Home & Tech", icon: Wifi, color: "oklch(0.50 0.18 260)",
+    id: "tech", label: "Smart Home & Tech", icon: Wifi, color: C.oceanMid,
     features: [
       { id: "smart-lock", label: "Smart Lock / Keyless Entry" },
       { id: "fiber-internet", label: "Fiber Internet Included" },
@@ -116,7 +123,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "laundry", label: "Laundry & Storage", icon: Package, color: "oklch(0.55 0.14 45)",
+    id: "laundry", label: "Laundry & Storage", icon: Package, color: C.taupe,
     features: [
       { id: "in-unit-wd", label: "In-Unit Washer/Dryer" },
       { id: "walk-in-closet", label: "Walk-In Closet" },
@@ -127,7 +134,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "amenities", label: "Building Amenities", icon: Dumbbell, color: "oklch(0.50 0.16 160)",
+    id: "amenities", label: "Building Amenities", icon: Dumbbell, color: C.turquoise,
     features: [
       { id: "rooftop-pool", label: "Rooftop Pool" },
       { id: "coworking", label: "Co-Working / Business Center" },
@@ -138,7 +145,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "outdoor", label: "Outdoor & Community", icon: TreePine, color: "oklch(0.55 0.16 140)",
+    id: "outdoor", label: "Outdoor & Community", icon: TreePine, color: C.teal,
     features: [
       { id: "private-balcony", label: "Private Balcony / Terrace" },
       { id: "dog-park", label: "Dog Park / Pet Area" },
@@ -149,7 +156,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "comfort", label: "Comfort & Climate", icon: Wind, color: "oklch(0.55 0.12 200)",
+    id: "comfort", label: "Comfort & Climate", icon: Wind, color: C.sky,
     features: [
       { id: "central-ac", label: "Central A/C & Heat" },
       { id: "floor-heat", label: "Radiant Floor Heating" },
@@ -160,7 +167,7 @@ const FEATURE_CATEGORIES = [
     ],
   },
   {
-    id: "lifestyle", label: "Lifestyle & Wellness", icon: Coffee, color: "oklch(0.60 0.14 30)",
+    id: "lifestyle", label: "Lifestyle & Wellness", icon: Coffee, color: C.oceanMid,
     features: [
       { id: "coffee-bar", label: "Resident Coffee Bar" },
       { id: "spa", label: "Sauna / Steam Room" },
@@ -172,7 +179,6 @@ const FEATURE_CATEGORIES = [
   },
 ];
 
-// ─── Gallery filter categories ────────────────────────────────────────────────
 const GALLERY_FILTERS = [
   { id: "all", label: "All Photos" },
   { id: "exterior", label: "Buildings" },
@@ -230,50 +236,55 @@ export default function OurStory() {
       <meta name="description" content="Learn about Resipointe's 20-year history building luxury communities in Newark, NJ. See upcoming pipeline projects and vote on features for our next buildings." />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section
-        className="relative min-h-[65vh] flex items-center overflow-hidden"
-        style={{ background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 60%, oklch(0.98 0.010 65) 100%)` }}
-      >
-        {/* Subtle dot grid */}
+      <section className="relative min-h-[90vh] flex items-end overflow-hidden">
+        {/* Full-bleed hero image */}
+        <img
+          src={HERO_IMG}
+          alt="Luxury coastal resort living"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Gradient overlay — lighter at top, stronger at bottom for text */}
         <div
-          className="absolute inset-0 opacity-[0.35]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(oklch(0.65 0.11 65 / 0.35) 1px, transparent 1px)`,
-            backgroundSize: "32px 32px",
+            background: `linear-gradient(to bottom,
+              oklch(0.38 0.12 220 / 0.15) 0%,
+              oklch(0.38 0.12 220 / 0.25) 40%,
+              oklch(0.38 0.12 220 / 0.75) 75%,
+              oklch(0.22 0.10 220 / 0.92) 100%)`
           }}
         />
-        {/* Gold accent line */}
-        <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: C.gold }} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-8 py-24 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-8 pb-20 pt-32 w-full">
+          <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-5">
-              <div className="h-px w-10" style={{ background: C.gold }} />
-              <span className="text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: C.goldSoft }}>
+              <Waves className="w-5 h-5" style={{ color: C.turqLight }} />
+              <span className="text-xs tracking-[0.3em] uppercase font-semibold" style={{ color: C.turqLight }}>
                 Built Together · Since 2005
               </span>
             </div>
-            <h1 className="font-serif text-5xl lg:text-6xl font-light leading-[1.1] mb-5" style={{ color: C.navy }}>
+            <h1 className="font-serif text-5xl lg:text-7xl font-light leading-[1.05] mb-6 text-white">
               We Don't Just Build
-              <span className="block italic" style={{ color: C.gold }}> Apartments.</span>
-              We Build Homes.
+              <span className="block italic" style={{ color: C.turqLight }}> Apartments.</span>
+              <span className="block">We Build Homes.</span>
             </h1>
-            <p className="text-base leading-relaxed mb-8" style={{ color: C.navyLight }}>
+            <p className="text-base lg:text-lg leading-relaxed mb-8 max-w-xl" style={{ color: "oklch(0.90 0.04 200)" }}>
               For two decades, Resipointe has believed that the best homes are shaped by the people who live in them. Our story is one of community, craftsmanship, and a genuine commitment to making Newark's most livable neighborhoods even better.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href="#collaborate"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90"
-                style={{ background: C.gold, color: C.navy }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm transition-all hover:brightness-110 shadow-lg"
+                style={{ background: C.turquoise, color: "white" }}
               >
                 <Heart className="w-4 h-4" />
                 Shape Our Next Building
               </a>
               <a
                 href="#pipeline"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border transition-all hover:bg-white/10"
-                style={{ borderColor: `${C.gold}80`, color: C.gold, background: 'white' }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm border-2 transition-all hover:bg-white/10"
+                style={{ borderColor: "white", color: "white" }}
               >
                 <Building2 className="w-4 h-4" />
                 See What's Coming
@@ -281,8 +292,8 @@ export default function OurStory() {
             </div>
           </div>
 
-          {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Stat strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-14">
             {[
               { value: "20+", label: "Years in Newark", icon: Clock },
               { value: "5", label: "Active Properties", icon: Building2 },
@@ -291,15 +302,15 @@ export default function OurStory() {
             ].map(({ value, label, icon: Icon }) => (
               <div
                 key={label}
-                className="rounded-2xl p-6 border shadow-sm"
+                className="rounded-2xl p-5 backdrop-blur-sm border"
                 style={{
-                  background: "white",
-                  borderColor: `${C.gold}30`,
+                  background: "oklch(1 0 0 / 0.12)",
+                  borderColor: "oklch(1 0 0 / 0.25)",
                 }}
               >
-                <Icon className="w-5 h-5 mb-3" style={{ color: C.gold }} />
-                <div className="text-3xl font-light mb-1 font-serif" style={{ color: C.navy }}>{value}</div>
-                <div className="text-xs" style={{ color: C.slateLight }}>{label}</div>
+                <Icon className="w-4 h-4 mb-2" style={{ color: C.turqLight }} />
+                <div className="text-3xl font-light font-serif text-white">{value}</div>
+                <div className="text-xs mt-0.5" style={{ color: "oklch(0.85 0.05 200)" }}>{label}</div>
               </div>
             ))}
           </div>
@@ -307,52 +318,50 @@ export default function OurStory() {
       </section>
 
       {/* ── PHILOSOPHY BAND ──────────────────────────────────────────────── */}
-      <section style={{ background: C.gold }} className="py-6">
+      <section style={{ background: `linear-gradient(90deg, ${C.ocean} 0%, ${C.teal} 50%, ${C.ocean} 100%)` }} className="py-7">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-base font-semibold tracking-wide" style={{ color: C.navy }}>
+          <p className="text-base font-light tracking-wide text-white leading-relaxed">
             "A Resipointe home is not finished when the last nail is driven — it's finished when the community that lives there feels truly at home."
           </p>
-          <p className="text-xs mt-1.5 font-medium" style={{ color: `${C.navy}99` }}>— Resipointe Development Team</p>
+          <p className="text-xs mt-2 font-medium" style={{ color: C.turqLight }}>— Resipointe Development Team</p>
         </div>
       </section>
 
       {/* ── COMPACT TIMELINE ─────────────────────────────────────────────── */}
-      <section className="py-16" style={{ background: C.cream }}>
+      <section className="py-16" style={{ background: C.beige }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-10" style={{ background: C.gold }} />
-              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.slate }}>Our Journey</span>
-              <div className="h-px w-10" style={{ background: C.gold }} />
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
+              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.teal }}>Our Journey</span>
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
             </div>
-            <h2 className="font-serif text-3xl font-light text-foreground">Two Decades of Building Community</h2>
+            <h2 className="font-serif text-3xl font-light" style={{ color: C.ocean }}>Two Decades of Building Community</h2>
           </div>
 
           {/* Horizontal compact timeline */}
           <div className="relative">
-            {/* Connecting line */}
             <div
-              className="absolute top-6 left-0 right-0 h-px hidden lg:block"
-              style={{ background: `linear-gradient(90deg, transparent, ${C.gold}50, ${C.gold}80, ${C.gold}50, transparent)` }}
+              className="absolute top-6 left-0 right-0 h-0.5 hidden lg:block"
+              style={{ background: `linear-gradient(90deg, transparent, ${C.turquoise}60, ${C.turquoise}, ${C.turquoise}60, transparent)` }}
             />
             <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
               {TIMELINE.map((item, i) => {
                 const Icon = item.icon;
                 return (
                   <div key={item.year} className="relative flex flex-col items-center text-center group">
-                    {/* Dot */}
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center mb-3 z-10 border-2 transition-all group-hover:scale-110"
+                      className="w-12 h-12 rounded-full flex items-center justify-center mb-3 z-10 border-2 transition-all group-hover:scale-110 shadow-md"
                       style={{
-                        background: i === TIMELINE.length - 1 ? C.gold : C.navy,
-                        borderColor: C.gold,
+                        background: i === TIMELINE.length - 1 ? C.turquoise : "white",
+                        borderColor: C.turquoise,
                       }}
                     >
-                      <Icon className="w-5 h-5" style={{ color: i === TIMELINE.length - 1 ? C.navy : C.gold }} />
+                      <Icon className="w-5 h-5" style={{ color: i === TIMELINE.length - 1 ? "white" : C.turquoise }} />
                     </div>
-                    <div className="text-xs font-bold tracking-widest mb-1" style={{ color: C.gold }}>{item.year}</div>
-                    <div className="text-sm font-semibold text-foreground mb-1">{item.title}</div>
-                    <div className="text-xs leading-relaxed text-muted-foreground">{item.body}</div>
+                    <div className="text-xs font-bold tracking-widest mb-1" style={{ color: C.turquoise }}>{item.year}</div>
+                    <div className="text-sm font-semibold mb-1" style={{ color: C.ocean }}>{item.title}</div>
+                    <div className="text-xs leading-relaxed" style={{ color: C.taupe }}>{item.body}</div>
                   </div>
                 );
               })}
@@ -362,16 +371,16 @@ export default function OurStory() {
       </section>
 
       {/* ── PIPELINE ─────────────────────────────────────────────────────── */}
-      <section id="pipeline" className="py-20 bg-background">
+      <section id="pipeline" className="py-20" style={{ background: C.ivory }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-10" style={{ background: C.gold }} />
-              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.slate }}>Coming Soon</span>
-              <div className="h-px w-10" style={{ background: C.gold }} />
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
+              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.teal }}>Coming Soon</span>
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
             </div>
-            <h2 className="font-serif text-3xl font-light text-foreground mb-3">Projects in the Pipeline</h2>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>Projects in the Pipeline</h2>
+            <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: C.taupe }}>
               These three developments are being shaped right now — by our team and by future tenants like you. Vote on features below to directly influence what gets built.
             </p>
           </div>
@@ -380,8 +389,8 @@ export default function OurStory() {
             {PIPELINE.map(project => (
               <div
                 key={project.id}
-                className="rounded-2xl overflow-hidden border bg-card shadow-sm hover:shadow-lg transition-all group"
-                style={{ borderColor: `${C.gold}30` }}
+                className="rounded-2xl overflow-hidden border bg-white shadow-sm hover:shadow-xl transition-all group"
+                style={{ borderColor: `${C.turquoise}25` }}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -391,8 +400,8 @@ export default function OurStory() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
                   <span
-                    className="absolute top-3 right-3 text-xs px-3 py-1 rounded-full font-bold shadow"
-                    style={{ background: project.statusColor, color: "white" }}
+                    className="absolute top-3 right-3 text-xs px-3 py-1 rounded-full font-bold shadow text-white"
+                    style={{ background: project.statusColor }}
                   >
                     {project.status}
                   </span>
@@ -402,15 +411,15 @@ export default function OurStory() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1">{project.name}</h3>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1 mb-3"><MapPin className="w-3 h-3" />{project.address}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{project.description}</p>
+                  <h3 className="font-serif text-lg font-semibold mb-1" style={{ color: C.ocean }}>{project.name}</h3>
+                  <p className="text-xs flex items-center gap-1 mb-3" style={{ color: C.taupe }}><MapPin className="w-3 h-3" />{project.address}</p>
+                  <p className="text-sm leading-relaxed mb-3" style={{ color: C.taupe }}>{project.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.highlights.map(h => (
                       <span
                         key={h}
                         className="text-xs px-2.5 py-1 rounded-full font-medium"
-                        style={{ background: C.goldFaint, color: "oklch(0.45 0.12 75)" }}
+                        style={{ background: C.turqFaint, color: C.teal }}
                       >
                         {h}
                       </span>
@@ -424,16 +433,16 @@ export default function OurStory() {
       </section>
 
       {/* ── GALLERY ──────────────────────────────────────────────────────── */}
-      <section id="gallery" className="py-20" style={{ background: C.cream }}>
+      <section id="gallery" className="py-20" style={{ background: C.beige }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-10" style={{ background: C.gold }} />
-              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.slate }}>Photo Gallery</span>
-              <div className="h-px w-10" style={{ background: C.gold }} />
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
+              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.teal }}>Photo Gallery</span>
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
             </div>
-            <h2 className="font-serif text-3xl font-light text-foreground mb-3">See Our Properties</h2>
-            <p className="text-sm text-muted-foreground">Real photos from our buildings — exteriors, interiors, and amenities.</p>
+            <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>See Our Properties</h2>
+            <p className="text-sm" style={{ color: C.taupe }}>Real photos from our buildings — exteriors, interiors, and amenities.</p>
           </div>
 
           {/* Filter tabs */}
@@ -444,9 +453,9 @@ export default function OurStory() {
                 onClick={() => setGalleryFilter(f.id)}
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all border"
                 style={{
-                  background: galleryFilter === f.id ? C.gold : "white",
-                  color: galleryFilter === f.id ? "white" : C.slate,
-                  borderColor: galleryFilter === f.id ? C.gold : `${C.gold}40`,
+                  background: galleryFilter === f.id ? C.turquoise : "white",
+                  color: galleryFilter === f.id ? "white" : C.ocean,
+                  borderColor: galleryFilter === f.id ? C.turquoise : `${C.turquoise}40`,
                 }}
               >
                 {f.label}
@@ -454,12 +463,12 @@ export default function OurStory() {
             ))}
           </div>
 
-          {/* Masonry-style grid */}
+          {/* Masonry grid */}
           <div className="columns-2 lg:columns-3 gap-4 space-y-4">
             {filteredGallery.map((img, i) => (
               <div
                 key={img.id}
-                className="relative break-inside-avoid overflow-hidden rounded-xl cursor-pointer group shadow-sm hover:shadow-md transition-all"
+                className="relative break-inside-avoid overflow-hidden rounded-xl cursor-pointer group shadow-sm hover:shadow-lg transition-all"
                 onClick={() => setLightboxId(img.id)}
               >
                 <img
@@ -484,11 +493,11 @@ export default function OurStory() {
       {lightboxImg && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "oklch(0.05 0.02 240 / 0.92)" }}
+          style={{ background: "oklch(0.10 0.05 220 / 0.92)" }}
           onClick={() => setLightboxId(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-yellow-300 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-cyan-300 transition-colors"
             onClick={() => setLightboxId(null)}
           >
             <X className="w-8 h-8" />
@@ -501,22 +510,25 @@ export default function OurStory() {
       )}
 
       {/* ── COLLABORATION HUB ────────────────────────────────────────────── */}
-      <section id="collaborate" className="py-20 bg-background">
+      <section id="collaborate" className="py-20" style={{ background: C.ivory }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <div className="h-px w-10" style={{ background: C.gold }} />
-              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.slate }}>Your Voice Builds This</span>
-              <div className="h-px w-10" style={{ background: C.gold }} />
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
+              <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.teal }}>Your Voice Builds This</span>
+              <div className="h-px w-10" style={{ background: C.turquoise }} />
             </div>
-            <h2 className="font-serif text-3xl font-light text-foreground mb-3">Build Your Dream Home With Us</h2>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>Build Your Dream Home With Us</h2>
+            <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: C.taupe }}>
               We're designing our next three buildings right now. Every vote is reviewed by our design team — the most-requested features get built. This is real collaboration, not a survey that disappears.
             </p>
           </div>
 
-          {/* How it works — compact */}
-          <div className="grid grid-cols-3 gap-4 mb-10 p-6 rounded-2xl border" style={{ borderColor: `${C.gold}25`, background: C.cream }}>
+          {/* How it works */}
+          <div
+            className="grid grid-cols-3 gap-4 mb-10 p-6 rounded-2xl border"
+            style={{ borderColor: `${C.turquoise}25`, background: C.beige }}
+          >
             {[
               { step: "01", title: "Vote on Features", desc: "Upvote what you'd love in your new home.", icon: ThumbsUp },
               { step: "02", title: "Submit Your Idea", desc: "Have something we haven't listed? Tell us.", icon: Plus },
@@ -525,13 +537,13 @@ export default function OurStory() {
               <div key={step} className="text-center">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3"
-                  style={{ background: C.goldFaint }}
+                  style={{ background: C.turqFaint }}
                 >
-                  <Icon className="w-4 h-4" style={{ color: C.gold }} />
+                  <Icon className="w-4 h-4" style={{ color: C.turquoise }} />
                 </div>
-                <div className="text-xs font-bold tracking-widest mb-1" style={{ color: C.gold }}>{step}</div>
-                <h3 className="text-sm font-semibold text-foreground mb-1">{title}</h3>
-                <p className="text-xs text-muted-foreground">{desc}</p>
+                <div className="text-xs font-bold tracking-widest mb-1" style={{ color: C.turquoise }}>{step}</div>
+                <h3 className="text-sm font-semibold mb-1" style={{ color: C.ocean }}>{title}</h3>
+                <p className="text-xs" style={{ color: C.taupe }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -547,9 +559,9 @@ export default function OurStory() {
                   onClick={() => setActiveCategory(cat.id)}
                   className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all border"
                   style={{
-                    background: isActive ? C.gold : "white",
-                    color: isActive ? "white" : C.slate,
-                    borderColor: isActive ? C.gold : `${C.gold}40`,
+                    background: isActive ? C.turquoise : "white",
+                    color: isActive ? "white" : C.ocean,
+                    borderColor: isActive ? C.turquoise : `${C.turquoise}40`,
                   }}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -562,12 +574,12 @@ export default function OurStory() {
           {/* Feature voting grid */}
           <div
             className="rounded-2xl border p-6 mb-10"
-            style={{ borderColor: `${C.gold}25`, background: C.cream }}
+            style={{ borderColor: `${C.turquoise}25`, background: C.beige }}
           >
             <div className="flex items-center gap-3 mb-5">
               {(() => { const Icon = activeCat.icon; return <Icon className="w-5 h-5" style={{ color: activeCat.color }} />; })()}
-              <h3 className="font-semibold text-foreground">{activeCat.label}</h3>
-              <span className="text-xs text-muted-foreground ml-auto">Click to vote — your votes are saved</span>
+              <h3 className="font-semibold" style={{ color: C.ocean }}>{activeCat.label}</h3>
+              <span className="text-xs ml-auto" style={{ color: C.taupeLight }}>Click to vote — your votes are saved</span>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {activeCat.features.map(feature => {
@@ -578,23 +590,23 @@ export default function OurStory() {
                     onClick={() => handleVote(feature.id, feature.label, activeCat.id)}
                     className="flex items-center gap-3 p-4 rounded-xl border text-left transition-all group"
                     style={{
-                      borderColor: voted ? C.gold : "oklch(0.85 0.03 240)",
-                      background: voted ? C.goldFaint : "white",
+                      borderColor: voted ? C.turquoise : `${C.turquoise}30`,
+                      background: voted ? C.turqFaint : "white",
                     }}
                   >
                     <div
                       className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all"
-                      style={{ background: voted ? C.gold : "oklch(0.93 0.02 240)" }}
+                      style={{ background: voted ? C.turquoise : `${C.turquoise}15` }}
                     >
                       {voted
                         ? <CheckCircle2 className="w-4 h-4 text-white" />
-                        : <ThumbsUp className="w-4 h-4 text-muted-foreground group-hover:scale-110 transition-transform" />
+                        : <ThumbsUp className="w-4 h-4 group-hover:scale-110 transition-transform" style={{ color: C.turquoise }} />
                       }
                     </div>
-                    <span className="text-sm font-medium" style={{ color: voted ? "oklch(0.45 0.12 75)" : "oklch(0.30 0.04 240)" }}>
+                    <span className="text-sm font-medium" style={{ color: voted ? C.teal : C.ocean }}>
                       {feature.label}
                     </span>
-                    {voted && <span className="ml-auto text-xs font-bold" style={{ color: C.gold }}>✓ Voted</span>}
+                    {voted && <span className="ml-auto text-xs font-bold" style={{ color: C.turquoise }}>✓ Voted</span>}
                   </button>
                 );
               })}
@@ -604,20 +616,23 @@ export default function OurStory() {
           {/* Dream feature submission */}
           <div
             className="rounded-2xl border p-8"
-            style={{ borderColor: `${C.gold}30`, background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 100%)` }}
+            style={{
+              borderColor: `${C.turquoise}30`,
+              background: `linear-gradient(135deg, ${C.ocean} 0%, oklch(0.48 0.14 200) 100%)`
+            }}
           >
             <div className="max-w-2xl mx-auto text-center">
-              <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: C.gold }} />
-              <h3 className="font-serif text-2xl font-light mb-2" style={{ color: C.navy }}>Have a Feature We Haven't Listed?</h3>
-              <p className="text-sm mb-6" style={{ color: C.navyLight }}>
+              <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: C.turqLight }} />
+              <h3 className="font-serif text-2xl font-light text-white mb-2">Have a Feature We Haven't Listed?</h3>
+              <p className="text-sm mb-6" style={{ color: "oklch(0.85 0.06 200)" }}>
                 Our design team reads every submission. If your idea resonates with other future tenants, it could end up in our next building.
               </p>
 
               {submitted ? (
-                <div className="rounded-xl p-6 flex flex-col items-center gap-3" style={{ background: `${C.gold}20` }}>
-                  <CheckCircle2 className="w-10 h-10" style={{ color: C.gold }} />
-                  <p className="font-semibold" style={{ color: C.navy }}>Your idea has been submitted!</p>
-                  <p className="text-sm" style={{ color: C.navyLight }}>
+                <div className="rounded-xl p-6 flex flex-col items-center gap-3" style={{ background: "oklch(1 0 0 / 0.12)" }}>
+                  <CheckCircle2 className="w-10 h-10" style={{ color: C.turqLight }} />
+                  <p className="text-white font-semibold">Your idea has been submitted!</p>
+                  <p className="text-sm" style={{ color: "oklch(0.85 0.06 200)" }}>
                     Our design team will review it. Thank you for helping shape the next Resipointe community.
                   </p>
                 </div>
@@ -629,30 +644,30 @@ export default function OurStory() {
                     placeholder="Describe your dream feature... e.g. 'A rooftop herb garden where residents can grow their own food'"
                     rows={4}
                     className="resize-none text-sm border"
-                    style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
+                    style={{ background: "oklch(1 0 0 / 0.12)", color: "white", borderColor: "oklch(1 0 0 / 0.25)" }}
                   />
                   <div className="grid sm:grid-cols-2 gap-3">
                     <Input
                       value={submitterName}
                       onChange={e => setSubmitterName(e.target.value)}
                       placeholder="Your name (optional)"
-                    className="border text-sm"
-                    style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
-                  />
+                      className="border text-sm"
+                      style={{ background: "oklch(1 0 0 / 0.12)", color: "white", borderColor: "oklch(1 0 0 / 0.25)" }}
+                    />
                     <Input
                       value={submitterEmail}
                       onChange={e => setSubmitterEmail(e.target.value)}
                       placeholder="Email to be notified (optional)"
                       type="email"
                       className="border text-sm"
-                      style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
+                      style={{ background: "oklch(1 0 0 / 0.12)", color: "white", borderColor: "oklch(1 0 0 / 0.25)" }}
                     />
                   </div>
                   <Button
                     type="submit"
                     disabled={!dreamFeature.trim() || dreamMutation.isPending}
                     className="w-full gap-2 font-semibold"
-                    style={{ background: C.gold, color: C.navy }}
+                    style={{ background: C.turquoise, color: "white" }}
                   >
                     <Send className="w-4 h-4" />
                     {dreamMutation.isPending ? "Submitting..." : "Submit My Dream Feature"}
@@ -667,27 +682,27 @@ export default function OurStory() {
       {/* ── CLOSING CTA ──────────────────────────────────────────────────── */}
       <section
         className="py-20 text-center"
-        style={{ background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 100%)` }}
+        style={{ background: `linear-gradient(135deg, ${C.ocean} 0%, ${C.teal} 100%)` }}
       >
         <div className="max-w-3xl mx-auto px-6">
-          <ShieldCheck className="w-10 h-10 mx-auto mb-4" style={{ color: C.gold }} />
-          <h2 className="font-serif text-3xl font-light mb-4" style={{ color: C.navy }}>Ready to Make Newark Home?</h2>
-          <p className="text-sm mb-8" style={{ color: C.navyLight }}>
+          <ShieldCheck className="w-10 h-10 mx-auto mb-4" style={{ color: C.turqLight }} />
+          <h2 className="font-serif text-3xl font-light text-white mb-4">Ready to Make Newark Home?</h2>
+          <p className="text-sm mb-8" style={{ color: "oklch(0.88 0.06 200)" }}>
             Tour our current properties or register your interest in an upcoming building. Either way, you're joining a community built with you in mind.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="/book-tour"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90"
-              style={{ background: C.gold, color: C.navy }}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-sm transition-all hover:brightness-110 shadow-lg"
+              style={{ background: C.turquoise, color: "white" }}
             >
               <Calendar className="w-4 h-4" />
               Schedule a Tour
             </a>
             <a
               href="/properties"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-sm border transition-all hover:bg-white/10"
-              style={{ borderColor: `${C.gold}70`, color: C.gold, background: 'white' }}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-sm border-2 transition-all hover:bg-white/10"
+              style={{ borderColor: "white", color: "white" }}
             >
               <Building2 className="w-4 h-4" />
               View All Properties
@@ -696,8 +711,8 @@ export default function OurStory() {
         </div>
       </section>
 
-      <footer className="py-8 text-center border-t border-border">
-        <p className="text-xs text-muted-foreground">© 2026 Resipointe. All rights reserved. Newark, NJ.</p>
+      <footer className="py-8 text-center border-t" style={{ borderColor: `${C.turquoise}20`, background: C.ivory }}>
+        <p className="text-xs" style={{ color: C.taupe }}>© 2026 Resipointe. All rights reserved. Newark, NJ.</p>
       </footer>
     </>
   );

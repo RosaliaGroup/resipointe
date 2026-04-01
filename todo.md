@@ -64,3 +64,14 @@
 
 ## Lighter Color Palette
 - [x] Make Our Story page much lighter — bright sand/linen/warm-white backgrounds, dark text
+
+## Desert Resort Redesign
+- [ ] Redesign Our Story page with luxury desert resort aesthetic (terracotta, dusty rose, burnt sienna, ivory, canyon earth tones)
+- [ ] Generate hero background image with desert resort luxury feel
+- [ ] Apply resort-quality typography and visual hierarchy
+
+## Coastal Resort Palette Redesign
+- [x] Generate luxury coastal hero image (ocean blues, turquoise, white architecture)
+- [x] Rewrite OurStory.tsx with blues/turquoise/white/beige palette
+- [x] Update global CSS tokens to coastal palette
+- [x] Update Navbar to match coastal palette

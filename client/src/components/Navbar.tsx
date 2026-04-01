@@ -16,12 +16,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const navBg = scrolled || !isHome ? "bg-card/95 backdrop-blur-md shadow-sm border-b border-border" : "bg-transparent";
-  const textColor = scrolled || !isHome ? "text-foreground" : "text-white";
-  const logoColor = scrolled || !isHome ? "text-foreground" : "text-white";
+  const navBg = scrolled || !isHome
+    ? "backdrop-blur-md shadow-sm border-b"
+    : "bg-transparent";
+  const navStyle = scrolled || !isHome
+    ? { background: "oklch(0.22 0.08 220 / 0.97)", borderColor: "oklch(0.68 0.14 192 / 0.25)" }
+    : {};
+  const textColor = "text-white";
+  const logoColor = "text-white";
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`} style={navStyle}>
       <div className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -77,29 +82,29 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-card border-t border-border shadow-xl">
+        <div className="lg:hidden border-t shadow-xl" style={{ background: "oklch(0.22 0.08 220 / 0.98)", borderColor: "oklch(0.68 0.14 192 / 0.25)" }}>
           <div className="container py-4 space-y-1">
             <Link href="/properties" onClick={() => setOpen(false)}>
-              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Properties</div>
+              <div className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg cursor-pointer">Properties</div>
             </Link>
-            <p className="px-3 py-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Campaigns</p>
+            <p className="px-3 py-1 text-xs font-semibold uppercase tracking-wider" style={{ color: "oklch(0.78 0.10 192)" }}>Campaigns</p>
             {CAMPAIGNS.map(c => (
               <Link key={c.id} href={c.slug} onClick={() => setOpen(false)}>
-                <div className="flex items-center gap-2 px-3 py-2 text-sm text-foreground hover:bg-muted rounded-lg cursor-pointer">
+                <div className="flex items-center gap-2 px-3 py-2 text-sm text-white hover:bg-white/10 rounded-lg cursor-pointer">
                   <span>{c.icon}</span><span>{c.title}</span>
                 </div>
               </Link>
             ))}
-            <a href="/#calculator" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Cost Calculator</a>
-            <a href="/#gallery" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg">Gallery</a>
+            <a href="/#calculator" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg">Cost Calculator</a>
+            <a href="/#gallery" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg">Gallery</a>
             <Link href="/" onClick={() => setOpen(false)}>
-              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Our Story</div>
+              <div className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg cursor-pointer">Our Story</div>
             </Link>
             <Link href="/collaborate" onClick={() => setOpen(false)}>
-              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Collaborate</div>
+              <div className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg cursor-pointer">Collaborate</div>
             </Link>
             <Link href="/floor-plans" onClick={() => setOpen(false)}>
-              <div className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-muted rounded-lg cursor-pointer">Floor Plans</div>
+              <div className="block px-3 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg cursor-pointer">Floor Plans</div>
             </Link>
             <div className="pt-3 flex gap-3">
               <Link href="/book-tour" onClick={() => setOpen(false)}>
