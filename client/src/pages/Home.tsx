@@ -206,25 +206,51 @@ function PropertyGrid() {
 }
 
 function CampaignStrip() {
+  const C = {
+    ocean: "oklch(0.22 0.10 225)",
+    teal: "oklch(0.42 0.12 205)",
+    turquoise: "oklch(0.55 0.14 192)",
+    turqLight: "oklch(0.70 0.12 192)",
+    beige: "oklch(0.94 0.018 75)",
+    taupe: "oklch(0.30 0.025 60)",
+  };
   return (
-    <section className="py-16 bg-foreground text-background" id="campaigns">
+    <section
+      className="py-20"
+      id="campaigns"
+      style={{ background: `linear-gradient(135deg, ${C.ocean} 0%, oklch(0.32 0.12 215) 100%)` }}
+    >
       <div className="container">
-        <div className="text-center mb-10">
-          <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-3">Tailored For You</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-3">Find Your Perfect Match</h2>
-          <p className="text-background/60 max-w-lg mx-auto text-sm">
-            We've designed dedicated experiences for every lifestyle. Explore the campaign built for you.
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-10" style={{ background: C.turqLight }} />
+            <span className="text-xs tracking-[0.25em] uppercase font-semibold" style={{ color: C.turqLight }}>Resort Lifestyles</span>
+            <div className="h-px w-10" style={{ background: C.turqLight }} />
+          </div>
+          <h2 className="font-serif text-3xl md:text-4xl font-light text-white mb-3">
+            Find Your Resort Match
+          </h2>
+          <p className="max-w-lg mx-auto text-sm font-medium" style={{ color: "oklch(0.82 0.06 200)" }}>
+            Every lifestyle deserves a resort-quality home. Explore the campaign built for yours.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {CAMPAIGNS.map(c => (
             <Link key={c.id} href={c.slug}>
-              <div className="group cursor-pointer rounded-xl p-5 border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all duration-300 text-center">
+              <div
+                className="group cursor-pointer rounded-2xl p-5 border transition-all duration-300 text-center hover:scale-105 hover:shadow-xl"
+                style={{
+                  background: "oklch(1 0 0 / 0.07)",
+                  borderColor: "oklch(1 0 0 / 0.15)",
+                }}
+              >
                 <div className="text-3xl mb-3">{c.icon}</div>
-                <p className="font-semibold text-sm text-background mb-1">{c.title}</p>
-                <p className="text-xs text-background/50 leading-tight">{c.subheadline.split(".")[0]}</p>
+                <p className="font-semibold text-sm text-white mb-1">{c.title}</p>
+                <p className="text-xs leading-tight" style={{ color: "oklch(0.75 0.06 200)" }}>
+                  {c.subheadline.split(".")[0]}
+                </p>
                 <div className="mt-3 flex justify-center">
-                  <ChevronRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" style={{ color: C.turqLight }} />
                 </div>
               </div>
             </Link>

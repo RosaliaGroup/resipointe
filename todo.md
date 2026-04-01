@@ -80,3 +80,14 @@
 - [x] Darken all body text, labels, and muted text for readability
 - [x] Add dark text shadow on hero text over the photo
 - [x] Rewrite all copy with "We Build Homes Like Resorts" brand messaging
+
+## Campaign Pages — Brand Integration
+- [x] Apply coastal palette + resort messaging to all 6 campaign pages
+- [x] NYC Commuters campaign: resort living 20 min from Manhattan
+- [x] No-NY-Tax campaign: resort lifestyle, NJ savings
+- [x] Pilots & Flight Attendants campaign: resort home base 5 min from EWR
+- [x] Gen Z campaign: resort community, modern lifestyle
+- [x] Modern Finishes campaign: resort-quality interiors
+- [x] Amenities campaign: resort amenities at home
+- [x] Add "Shape Our Next Building" collaboration CTA to each campaign page
+- [x] Ensure each campaign has unique hero color accent while sharing coastal base
