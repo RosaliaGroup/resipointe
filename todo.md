@@ -112,3 +112,6 @@
 - [x] Remove AI-generated unverifiable dates from timeline
 - [x] Fix Iron Pointe year to 2024 (confirmed by external sources)
 - [x] Replace unverifiable milestones with developer-fill placeholders
+
+## Bug Fix
+- [x] Fix duplicate React key error in timeline (multiple [YEAR] keys)

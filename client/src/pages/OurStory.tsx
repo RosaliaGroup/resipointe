@@ -391,7 +391,7 @@ export default function OurStory() {
               {TIMELINE.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.year} className="relative flex flex-col items-center text-center group">
+                  <div key={`timeline-${i}`} className="relative flex flex-col items-center text-center group">
                     <div
                       className="w-12 h-12 rounded-full flex items-center justify-center mb-3 z-10 border-2 transition-all group-hover:scale-110 shadow-md"
                       style={{
