@@ -43,7 +43,7 @@ const TIMELINE = [
   { year: "2010", title: "First Ground-Up Build", body: "24-unit Market Street building — modern design, quality finishes.", icon: Hammer },
   { year: "2015", title: "Portfolio of 5", body: "Over 200 luxury residences across Newark's best corridors.", icon: Award },
   { year: "2019", title: "Iron Pointe Opens", body: "80 residences, rooftop terrace, NYC views, 24-hr security.", icon: Star },
-  { year: "2023", title: "Tenant Collaboration", body: "Formal program: future tenants shape upcoming building designs.", icon: Users },
+  { year: "2026", title: "Tenant Collaboration", body: "Formal program: future tenants shape upcoming building designs.", icon: Users },
   { year: "2025+", title: "Next Chapter", body: "3 new developments shaped by your votes on this page.", icon: Sparkles },
 ];
 
