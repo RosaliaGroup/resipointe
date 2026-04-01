@@ -44,7 +44,7 @@ const TIMELINE = [
   { year: "2015", title: "Portfolio of 5", body: "Over 200 luxury residences across Newark's best corridors.", icon: Award },
   { year: "2019", title: "Iron Pointe Opens", body: "80 residences, rooftop terrace, NYC views, 24-hr security.", icon: Star },
   { year: "2026", title: "Tenant Collaboration", body: "Formal program: future tenants shape upcoming building designs.", icon: Users },
-  { year: "2025+", title: "Next Chapter", body: "3 new developments shaped by your votes on this page.", icon: Sparkles },
+  { year: "2025+", title: "Next Chapter", body: "6 new developments shaped by your votes on this page.", icon: Sparkles },
 ];
 
 // ─── Pipeline ─────────────────────────────────────────────────────────────────
@@ -340,7 +340,7 @@ export default function OurStory() {
               { value: "20+", label: "Years in Newark", icon: Clock },
               { value: "5", label: "Active Properties", icon: Building2 },
               { value: "245+", label: "Luxury Residences", icon: Users },
-              { value: "3", label: "Projects in Pipeline", icon: Hammer },
+              { value: "6", label: "Projects in Pipeline", icon: Hammer },
             ].map(({ value, label, icon: Icon }) => (
               <div
                 key={label}
@@ -423,7 +423,7 @@ export default function OurStory() {
             </div>
             <h2 className="font-serif text-3xl font-light mb-3" style={{ color: C.ocean }}>Projects in the Pipeline</h2>
             <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: C.taupe }}>
-              These three developments are being shaped right now — by our team and by future tenants like you. Vote on features below to directly influence what gets built.
+              These six developments are being shaped right now — by our team and by future tenants like you. Vote on features below to directly influence what gets built.
             </p>
           </div>
 
