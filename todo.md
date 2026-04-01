@@ -61,3 +61,6 @@
 
 ## Color Palette Fix
 - [x] Replace navy/blue palette with warm sand/cream/taupe on Our Story page
+
+## Lighter Color Palette
+- [x] Make Our Story page much lighter — bright sand/linen/warm-white backgrounds, dark text

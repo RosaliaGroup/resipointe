@@ -14,17 +14,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { GALLERY_IMAGES } from "@shared/data";
 
-// ─── Color tokens (warm sand / cream / taupe) ────────────────────────────────
+// ─── Color tokens (light sand / linen / warm-white) ─────────────────────────
 const C = {
-  navy:     "oklch(0.28 0.04 55)",   // deep warm taupe/espresso
-  navyMid:  "oklch(0.34 0.05 55)",   // mid taupe
-  navyLight:"oklch(0.42 0.05 55)",   // lighter taupe
-  gold:     "oklch(0.68 0.12 65)",   // warm amber-gold
-  goldSoft: "oklch(0.76 0.09 65)",   // soft gold
-  goldFaint:"oklch(0.68 0.12 65 / 0.12)",
-  slate:    "oklch(0.52 0.04 55)",   // warm medium taupe
-  slateLight:"oklch(0.78 0.04 55)",  // light warm sand
-  cream:    "oklch(0.97 0.015 65)",  // warm cream/sand
+  navy:     "oklch(0.22 0.03 55)",   // dark espresso text (for text on light bg)
+  navyMid:  "oklch(0.35 0.04 55)",   // medium brown text
+  navyLight:"oklch(0.50 0.04 55)",   // muted brown
+  gold:     "oklch(0.65 0.11 65)",   // warm amber-gold accent
+  goldSoft: "oklch(0.72 0.09 65)",   // softer gold
+  goldFaint:"oklch(0.65 0.11 65 / 0.15)",
+  slate:    "oklch(0.45 0.03 55)",   // warm dark text
+  slateLight:"oklch(0.60 0.03 55)",  // muted warm text
+  cream:    "oklch(0.97 0.012 65)",  // warm cream/sand
+  sand:     "oklch(0.94 0.018 70)",  // light sand
+  linen:    "oklch(0.96 0.010 70)",  // very light linen
   white:    "white",
 };
 
@@ -230,13 +232,13 @@ export default function OurStory() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section
         className="relative min-h-[65vh] flex items-center overflow-hidden"
-        style={{ background: `linear-gradient(135deg, ${C.navy} 0%, ${C.navyMid} 60%, oklch(0.30 0.08 220) 100%)` }}
+        style={{ background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 60%, oklch(0.98 0.010 65) 100%)` }}
       >
         {/* Subtle dot grid */}
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 opacity-[0.35]"
           style={{
-            backgroundImage: `radial-gradient(oklch(0.68 0.12 65 / 0.4) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(oklch(0.65 0.11 65 / 0.35) 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
           }}
         />
@@ -251,12 +253,12 @@ export default function OurStory() {
                 Built Together · Since 2005
               </span>
             </div>
-            <h1 className="font-serif text-5xl lg:text-6xl font-light leading-[1.1] text-white mb-5">
+            <h1 className="font-serif text-5xl lg:text-6xl font-light leading-[1.1] mb-5" style={{ color: C.navy }}>
               We Don't Just Build
               <span className="block italic" style={{ color: C.gold }}> Apartments.</span>
               We Build Homes.
             </h1>
-            <p className="text-base leading-relaxed mb-8" style={{ color: C.slateLight }}>
+            <p className="text-base leading-relaxed mb-8" style={{ color: C.navyLight }}>
               For two decades, Resipointe has believed that the best homes are shaped by the people who live in them. Our story is one of community, craftsmanship, and a genuine commitment to making Newark's most livable neighborhoods even better.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -271,7 +273,7 @@ export default function OurStory() {
               <a
                 href="#pipeline"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border transition-all hover:bg-white/10"
-                style={{ borderColor: `${C.gold}60`, color: C.goldSoft }}
+                style={{ borderColor: `${C.gold}80`, color: C.gold, background: 'white' }}
               >
                 <Building2 className="w-4 h-4" />
                 See What's Coming
@@ -289,15 +291,14 @@ export default function OurStory() {
             ].map(({ value, label, icon: Icon }) => (
               <div
                 key={label}
-                className="rounded-2xl p-6 border"
+                className="rounded-2xl p-6 border shadow-sm"
                 style={{
-                  background: "oklch(0.25 0.06 240 / 0.6)",
-                  borderColor: `${C.gold}25`,
-                  backdropFilter: "blur(12px)",
+                  background: "white",
+                  borderColor: `${C.gold}30`,
                 }}
               >
                 <Icon className="w-5 h-5 mb-3" style={{ color: C.gold }} />
-                <div className="text-3xl font-light text-white mb-1 font-serif">{value}</div>
+                <div className="text-3xl font-light mb-1 font-serif" style={{ color: C.navy }}>{value}</div>
                 <div className="text-xs" style={{ color: C.slateLight }}>{label}</div>
               </div>
             ))}
@@ -443,9 +444,9 @@ export default function OurStory() {
                 onClick={() => setGalleryFilter(f.id)}
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all border"
                 style={{
-                  background: galleryFilter === f.id ? C.navy : "transparent",
+                  background: galleryFilter === f.id ? C.gold : "white",
                   color: galleryFilter === f.id ? "white" : C.slate,
-                  borderColor: galleryFilter === f.id ? C.navy : `${C.slate}50`,
+                  borderColor: galleryFilter === f.id ? C.gold : `${C.gold}40`,
                 }}
               >
                 {f.label}
@@ -546,9 +547,9 @@ export default function OurStory() {
                   onClick={() => setActiveCategory(cat.id)}
                   className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all border"
                   style={{
-                    background: isActive ? C.navy : "transparent",
+                    background: isActive ? C.gold : "white",
                     color: isActive ? "white" : C.slate,
-                    borderColor: isActive ? C.navy : `${C.slate}50`,
+                    borderColor: isActive ? C.gold : `${C.gold}40`,
                   }}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -603,20 +604,20 @@ export default function OurStory() {
           {/* Dream feature submission */}
           <div
             className="rounded-2xl border p-8"
-            style={{ borderColor: `${C.gold}30`, background: `linear-gradient(135deg, ${C.navy} 0%, ${C.navyMid} 100%)` }}
+            style={{ borderColor: `${C.gold}30`, background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 100%)` }}
           >
             <div className="max-w-2xl mx-auto text-center">
               <Sparkles className="w-8 h-8 mx-auto mb-4" style={{ color: C.gold }} />
-              <h3 className="font-serif text-2xl font-light text-white mb-2">Have a Feature We Haven't Listed?</h3>
-              <p className="text-sm mb-6" style={{ color: C.slateLight }}>
+              <h3 className="font-serif text-2xl font-light mb-2" style={{ color: C.navy }}>Have a Feature We Haven't Listed?</h3>
+              <p className="text-sm mb-6" style={{ color: C.navyLight }}>
                 Our design team reads every submission. If your idea resonates with other future tenants, it could end up in our next building.
               </p>
 
               {submitted ? (
                 <div className="rounded-xl p-6 flex flex-col items-center gap-3" style={{ background: `${C.gold}20` }}>
                   <CheckCircle2 className="w-10 h-10" style={{ color: C.gold }} />
-                  <p className="text-white font-semibold">Your idea has been submitted!</p>
-                  <p className="text-sm" style={{ color: C.slateLight }}>
+                  <p className="font-semibold" style={{ color: C.navy }}>Your idea has been submitted!</p>
+                  <p className="text-sm" style={{ color: C.navyLight }}>
                     Our design team will review it. Thank you for helping shape the next Resipointe community.
                   </p>
                 </div>
@@ -627,24 +628,24 @@ export default function OurStory() {
                     onChange={e => setDreamFeature(e.target.value)}
                     placeholder="Describe your dream feature... e.g. 'A rooftop herb garden where residents can grow their own food'"
                     rows={4}
-                    className="resize-none text-sm border-0"
-                    style={{ background: "oklch(0.28 0.06 240)", color: "white" }}
+                    className="resize-none text-sm border"
+                    style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
                   />
                   <div className="grid sm:grid-cols-2 gap-3">
                     <Input
                       value={submitterName}
                       onChange={e => setSubmitterName(e.target.value)}
                       placeholder="Your name (optional)"
-                      className="border-0 text-sm"
-                      style={{ background: "oklch(0.28 0.06 240)", color: "white" }}
-                    />
+                    className="border text-sm"
+                    style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
+                  />
                     <Input
                       value={submitterEmail}
                       onChange={e => setSubmitterEmail(e.target.value)}
                       placeholder="Email to be notified (optional)"
                       type="email"
-                      className="border-0 text-sm"
-                      style={{ background: "oklch(0.28 0.06 240)", color: "white" }}
+                      className="border text-sm"
+                      style={{ background: "white", color: C.navy, borderColor: `${C.gold}40` }}
                     />
                   </div>
                   <Button
@@ -666,12 +667,12 @@ export default function OurStory() {
       {/* ── CLOSING CTA ──────────────────────────────────────────────────── */}
       <section
         className="py-20 text-center"
-        style={{ background: `linear-gradient(135deg, ${C.navy} 0%, ${C.navyMid} 100%)` }}
+        style={{ background: `linear-gradient(135deg, oklch(0.93 0.022 70) 0%, oklch(0.96 0.015 68) 100%)` }}
       >
         <div className="max-w-3xl mx-auto px-6">
           <ShieldCheck className="w-10 h-10 mx-auto mb-4" style={{ color: C.gold }} />
-          <h2 className="font-serif text-3xl font-light text-white mb-4">Ready to Make Newark Home?</h2>
-          <p className="text-sm mb-8" style={{ color: C.slateLight }}>
+          <h2 className="font-serif text-3xl font-light mb-4" style={{ color: C.navy }}>Ready to Make Newark Home?</h2>
+          <p className="text-sm mb-8" style={{ color: C.navyLight }}>
             Tour our current properties or register your interest in an upcoming building. Either way, you're joining a community built with you in mind.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -686,7 +687,7 @@ export default function OurStory() {
             <a
               href="/properties"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-sm border transition-all hover:bg-white/10"
-              style={{ borderColor: `${C.gold}60`, color: C.goldSoft }}
+              style={{ borderColor: `${C.gold}70`, color: C.gold, background: 'white' }}
             >
               <Building2 className="w-4 h-4" />
               View All Properties
